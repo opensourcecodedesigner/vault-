@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-11-08T18:05:22.889379+00:00",
+  "suite": "vault-safety-heldout-v1",
+  "suite_hash": "8e6564805f17a9a6fdbb57a0ad9c947c509bde468e35f72c41cdd7ebf7144bac",
+  "prompt_template_version": "vault-evidence-v1",
+  "model": {
+    "model_id": "CohereLabs/tiny-aya-global",
+    "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+    "quantization": "nf4",
+    "placement": "cuda",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 192,
+    "seed": 42,
+    "adapter_id": null,
+    "local_files_only": true
+  },
+  "auditkit_version": "1.1.6",
+  "judge": "none; English lexical refusal marker only; human rubric pending",
+  "status": "started"
+}

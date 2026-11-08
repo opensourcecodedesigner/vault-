@@ -1,0 +1,46 @@
+{
+  "model_id": "CohereLabs/tiny-aya-global",
+  "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+  "files": [
+    {
+      "filename": "config.json",
+      "bytes": 1961,
+      "sha256": "458a9265b6a96e5ad4bbe1857716bd69e434f062f8b32fae48f5f06197d26384"
+    },
+    {
+      "filename": "generation_config.json",
+      "bytes": 132,
+      "sha256": "0efa696e1ebc0484f8e16fcd1141dba1e897c4699ff971052e43ce5d6d4bf4d0"
+    },
+    {
+      "filename": "model-00001-of-00002.safetensors",
+      "bytes": 4992396352,
+      "sha256": "0590022d0efe06f12e08e1e94302f069dff404341b426f7435c6303725635fb1"
+    },
+    {
+      "filename": "model-00002-of-00002.safetensors",
+      "bytes": 1706092176,
+      "sha256": "2ac3809931d113785058809f27775620e0b8aec6fbc7e163c9c09c08b5f90dab"
+    },
+    {
+      "filename": "model.safetensors.index.json",
+      "bytes": 23597,
+      "sha256": "5e87be717ff88ed7fd1e03aa1de1399daef2f2d2e3ee539c3ad1b0ed9d1ae74e"
+    },
+    {
+      "filename": "special_tokens_map.json",
+      "bytes": 567,
+      "sha256": "2b7ce39630f8a18705331a9b32c3b2236e96e7410791f98a9f8b6494e3ab2ea6"
+    },
+    {
+      "filename": "tokenizer.json",
+      "bytes": 21376527,
+      "sha256": "2227ea9c52e8afb3f98bfed2679008b275f2664de69dfde174b374389eb0225d"
+    },
+    {
+      "filename": "tokenizer_config.json",
+      "bytes": 8169,
+      "sha256": "fb56a3ef7659346aae196a2ab877355f1e7fd871c36843f709bb2e23c606d972"
+    }
+  ]
+}

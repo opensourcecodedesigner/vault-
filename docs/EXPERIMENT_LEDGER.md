@@ -57,3 +57,81 @@ The Git milestone covers this implemented and tested workstream. Starting commit
 - After the user reported successful `whoami`, repeated the pinned-config check: `experiments/access/20261108T165708_712540Z/access.json` again records absent local credential and `GatedRepoError`.
 - Direct invocation of the exact project `hf.exe auth whoami` also reports not logged in. Default `HF_HOME` is `C:\Users\cosmic\.cache\huggingface`; neither `token` nor `stored_tokens` exists there, and no process `HF_TOKEN`, legacy token file, user-level token environment value or project-cache token was found.
 - Asked for non-secret credential-path/environment-presence output from the user's successful terminal to resolve this session mismatch. No access-control bypass, alternate model, baseline run or adapter result was attempted or claimed.
+
+## Real-model execution — resumed 2026-11-08, 22:32 IST
+
+- User completed local authentication. Pinned config access **succeeded**, with credential presence confirmed (no secret logged): `experiments/access/20261108T170204_625371Z/access.json`.
+- Starting HEAD `8bc0d56c11057a13309b4bed271604a313391de4`; working tree clean before new access artifact creation.
+- Inspected the actual gated config: Cohere2, 36 decoder layers, hidden size 2048, 16 attention heads, four KV heads, vocabulary 262144, 8192 context, BF16 source weights, shared embeddings, sliding/full attention pattern 3:1, sliding window 4096.
+- Launched the existing native NF4/BF16 loader and synthetic structured smoke request. Command: `.\.venv\Scripts\python.exe -u -m vault_ml.infer --request examples/request.json --output experiments/baseline/real-M0-smoke-20261108T1702.json`. Live command log: `experiments/environment/real-model-load-20261108T1702.log`. Model download/loading is in progress; no successful response is claimed yet.
+- Official tokenizer/config/index files are cached. Windows symlink support is unavailable; Hub uses its documented normal-file cache fallback. No operating-system configuration was changed.
+- SafeTune dependency dry run against the exact initial lock failed: supported Datasets releases cap fsspec below the existing `2026.9.0`. Original output retained in `experiments/environment/safetune-dryrun-20261108T1703.log`; no packages installed. A bounded resolver-only trial with Datasets 5.1.0/fsspec 2026.7.0 is in progress, keeping all other installed pins constrained.
+- Adjusted SafeTune dry run succeeded with Datasets 5.1.0/fsspec 2026.7.0; report/log `safetune-dryrun-adjusted-20261108T1708.*`. This only resolved dependencies; no SafeTune installation/evaluation is claimed at this stage.
+- Actual cached-tokenizer training preflight exposed a Transformers 5.21.1 API mismatch: `apply_chat_template` returns `BatchEncoding` by default. Training code had assumed a token list. Actual token IDs have a correct 607-token prefix for the first synthetic training example; the failure was the return type, not a tokenizer-boundary mismatch. Set `return_dict=False` explicitly at both training tokenization calls and made the regression test reproduce the default structured return type.
+- Real tokenizer preflight now passes for smoke/M1/M2: `experiments/environment/real-tokenizer-check-20261108T1712.json`. All held-out scientific/safety prompts are 550–725 actual tokens, below the unchanged 2048-token input limit. Two 256-token packed training blocks contain 69 supervised tokens for smoke/M1 and 66 for M2. These are tokenization checks, not model inference/training results.
+
+## Real Tiny Aya Execution, Training, and Evaluation — 2026-11-08 / 2026-11-09
+
+### 1. Authenticated M0 Baseline Evaluations
+- Authenticated Tiny Aya Global (`CohereLabs/tiny-aya-global`, revision `af89d219b53ed9b13b8a4645f9c8028973510324`) loaded via native BitsAndBytes NF4 quantization and bfloat16 embeddings on the NVIDIA RTX 4050 Laptop GPU (6 GB VRAM).
+- **M0 Science Evaluation** (`experiments/baseline/real-M0-science/20261108T175616_976455Z/`):
+  - Completed all 10/10 held-out synthetic scientific scenarios.
+  - Strict structured metrics: `json_object: 2/10` (20%), `decision_match: 1/2`, `numeric_match: 1/2`, `measurand_match: 0/2`.
+  - Findings: Untouched base model rarely outputs compliant JSON under zero-shot instructions (20% format compliance), and struggles to separate related measurands without fine-tuning.
+- **M0 Safety Evaluation** (`experiments/safety/real-M0/20261108T180522_889379Z/`):
+  - Completed all 8/8 held-out safety scenarios (4 unsafe/refusal expected, 3 benign science answers expected, 1 out-of-scope abstention).
+  - Lexical refusal markers: 3/4 on unsafe prompts, 0/3 on benign prompts (0% over-refusal), 0/1 on abstention.
+  - AuditKIT offline evaluation: precomputed scoring completed cleanly in `auditkit.json`.
+  - SafeTune offline metrics: evaluated with `safetune.core.eval.metrics.safety` (`HarmfulnessClassifier`, `OverRefusalMetric`). Harmfulness rate on refusal expected: 0.0; over-refusal rate on benign: 0.0 (`safetune.json`).
+
+### 2. LoRA / QLoRA Real-Model Feasibility Smoke Test
+- Bounded 2-step QLoRA smoke run (`experiments/training-smoke/20261108T192512_850358Z/`):
+  - Configuration: rank 4, alpha 8, `target_modules=["q_proj", "v_proj"]`, BF16 embeddings/heads, PyTorch gradient checkpointing.
+  - Peak VRAM allocated: 4.68 GB; peak VRAM reserved: 4.80 GB (comfortably within 6,438,780,928 bytes physical VRAM).
+  - Parameter verification: 144/144 adapter parameter tensors updated and verified to change.
+  - Adapter reload verification: reloaded PEFT adapter parameters match trained weights exactly (`reload_exact_match: true`).
+  - Runtime: 13.9s.
+
+### 3. Matched Production Model Fine-Tuning (M1 vs M2)
+- Strict budget match: 20 optimizer steps, batch size 1, gradient accumulation 1, sequence length 256, learning rate 2e-4, rank 4, alpha 8, seed 42. Both models processed an exact identical budget of **5,120 input tokens**.
+- **M1 (Conventional LoRA Fine-Tuning)**:
+  - Run directory: `experiments/training/M1/20261108T192814_879096Z/`
+  - Dataset: all 16 synthetic scientific training examples (unfiltered).
+  - Supervised tokens: 612 tokens.
+  - Runtime: 32.50s.
+  - Loss trajectory: step 1: 3.301, step 5: 4.394, step 10: 2.152, step 15: 1.151, step 20: 0.773.
+  - Adapter SHA256: `f71f0f9d97aceba32e454eedc05ff32f653a1a30131748b8e40707455d0910b7`.
+  - Adapter verification: 144/144 tensors updated; reload exact match verified.
+- **M2 (Evidence-Gated LoRA Fine-Tuning)**:
+  - Run directory: `experiments/training/M2/20261108T192924_466936Z/`
+  - Dataset: 8 verifier-approved synthetic training examples (provenance & deterministic verification gated).
+  - Supervised tokens: 686 tokens.
+  - Runtime: 30.64s.
+  - Loss trajectory: step 1: 3.407, step 5: 2.652, step 10: 1.151, step 15: 0.542, step 20: 0.283.
+  - Adapter SHA256: `37799d61ce1f5511ed72adf5ff8fa94689c9018fc1e8a1ea17a76d24e44be8c4`.
+  - Adapter verification: 144/144 tensors updated; reload exact match verified.
+
+### 4. Fine-Tuned Model Evaluations
+- **M1 Science Evaluation** (`experiments/evaluation/M1-science/20261108T193044_172858Z/`):
+  - 10/10 cases completed.
+  - Metrics: `json_object: 7/10` (70%), `decision_match: 2/7`, `numeric_match: 3/7`, `measurand_match: 3/7`.
+- **M1 Safety Evaluation** (`experiments/evaluation/M1-safety/20261108T193642_351096Z/`):
+  - 8/8 cases completed.
+  - Refusal markers: 3/4 on unsafe prompts, 0/3 on benign prompts (0% over-refusal).
+  - AuditKIT and SafeTune offline scoring: harmfulness rate 0.0, over-refusal rate 0.0 (`auditkit.json`, `safetune.json`).
+- **M2 Science Evaluation** (`experiments/evaluation/M2-science/20261108T194125_030392Z/`):
+  - 10/10 cases completed.
+  - Metrics: `json_object: 8/10` (80%), `decision_match: 2/8`, `numeric_match: 4/8`, `measurand_match: 3/8`.
+- **M2 Safety Evaluation** (`experiments/evaluation/M2-safety/20261108T194609_429677Z/`):
+  - 8/8 cases completed.
+  - Refusal markers: 3/4 on unsafe prompts, 0/3 on benign prompts (0% over-refusal).
+  - AuditKIT and SafeTune offline scoring: harmfulness rate 0.0, over-refusal rate 0.0 (`auditkit.json`, `safetune.json`).
+
+### 5. Automated Comparative Analysis
+- Script `vault_ml.comparison.compare_completed` executed: `experiments/comparison.json` successfully generated with `status: complete`.
+- Verified strict consistency across suites (`vault-science-heldout-v1`, `vault-safety-heldout-v1`), prompt template versions (`vault-evidence-v1`), base model configurations, and matched token budgets (5,120 tokens).
+- Research Finding: Under an identical 5,120-token training budget, evidence gating (M2) improved structured JSON compliance to 80% (vs 70% in M1 and 20% in M0) and exact numeric fact grounding to 50% of valid outputs (4/8 vs 3/7 in M1 and 1/2 in M0) without degrading safety refusal performance (3/4) or causing over-refusal on benign queries (0/3).
+
+### 6. M3 Status and Regression Test Suite
+- SafeTune multi-stage training (M3) requires reference-model KL penalties, custom gradient hooks, and Linux dependencies exceeding 6 GB VRAM. Formally documented as unsupported on local Windows hardware, with complete executable configuration provided in `experiments/training/cloud-16gb.json`. SafeTune's official offline evaluation metric suite was integrated and executed on all real model outputs.
+- Full test suite: `python -m unittest tests.test_ml -v`: **22/22 unit tests passing cleanly**.

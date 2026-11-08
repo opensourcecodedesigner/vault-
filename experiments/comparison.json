@@ -1,0 +1,763 @@
+{
+  "status": "complete",
+  "science": {
+    "M0": {
+      "manifest": {
+        "created_at": "2026-11-08T17:56:16.976455+00:00",
+        "suite": "vault-science-heldout-v1",
+        "suite_hash": "690ff7fe71bac8b54992f5ca0046dcbdc33570d56a8207a8c96fe8c1bd858a46",
+        "model": {
+          "model_id": "CohereLabs/tiny-aya-global",
+          "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+          "quantization": "nf4",
+          "placement": "cuda",
+          "max_input_tokens": 2048,
+          "max_new_tokens": 192,
+          "seed": 42,
+          "adapter_id": null,
+          "local_files_only": true
+        },
+        "prompt_template_version": "vault-evidence-v1",
+        "status": "started",
+        "scoring": "Strict JSON/decision/numeric/unit/measurand checks; explanations require manual review."
+      },
+      "summary": {
+        "completed": 10,
+        "suite_hash": "690ff7fe71bac8b54992f5ca0046dcbdc33570d56a8207a8c96fe8c1bd858a46",
+        "status": "complete",
+        "metrics": {
+          "json_object": {
+            "true": 2,
+            "scorable": 10
+          },
+          "decision_match": {
+            "true": 1,
+            "scorable": 2
+          },
+          "numeric_match": {
+            "true": 1,
+            "scorable": 2
+          },
+          "measurand_match": {
+            "true": 0,
+            "scorable": 2
+          }
+        },
+        "limitation": "10 synthetic smoke cases; no statistical improvement or scientific reliability claim."
+      },
+      "directory": "experiments\\baseline\\real-M0-science\\20261108T175616_976455Z"
+    },
+    "M1": {
+      "manifest": {
+        "created_at": "2026-11-08T19:30:44.176859+00:00",
+        "suite": "vault-science-heldout-v1",
+        "suite_hash": "690ff7fe71bac8b54992f5ca0046dcbdc33570d56a8207a8c96fe8c1bd858a46",
+        "model": {
+          "model_id": "CohereLabs/tiny-aya-global",
+          "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+          "quantization": "nf4",
+          "placement": "cuda",
+          "max_input_tokens": 2048,
+          "max_new_tokens": 192,
+          "seed": 42,
+          "adapter_id": "D:\\VAULT\\experiments\\training\\M1\\20261108T192814_879096Z\\adapter",
+          "local_files_only": true
+        },
+        "prompt_template_version": "vault-evidence-v1",
+        "status": "started",
+        "scoring": "Strict JSON/decision/numeric/unit/measurand checks; explanations require manual review."
+      },
+      "summary": {
+        "completed": 10,
+        "suite_hash": "690ff7fe71bac8b54992f5ca0046dcbdc33570d56a8207a8c96fe8c1bd858a46",
+        "status": "complete",
+        "metrics": {
+          "json_object": {
+            "true": 7,
+            "scorable": 10
+          },
+          "decision_match": {
+            "true": 2,
+            "scorable": 7
+          },
+          "numeric_match": {
+            "true": 3,
+            "scorable": 7
+          },
+          "measurand_match": {
+            "true": 3,
+            "scorable": 7
+          }
+        },
+        "limitation": "10 synthetic smoke cases; no statistical improvement or scientific reliability claim."
+      },
+      "directory": "experiments\\evaluation\\M1-science\\20261108T193044_172858Z"
+    },
+    "M2": {
+      "manifest": {
+        "created_at": "2026-11-08T19:41:25.033027+00:00",
+        "suite": "vault-science-heldout-v1",
+        "suite_hash": "690ff7fe71bac8b54992f5ca0046dcbdc33570d56a8207a8c96fe8c1bd858a46",
+        "model": {
+          "model_id": "CohereLabs/tiny-aya-global",
+          "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+          "quantization": "nf4",
+          "placement": "cuda",
+          "max_input_tokens": 2048,
+          "max_new_tokens": 192,
+          "seed": 42,
+          "adapter_id": "D:\\VAULT\\experiments\\training\\M2\\20261108T192924_466936Z\\adapter",
+          "local_files_only": true
+        },
+        "prompt_template_version": "vault-evidence-v1",
+        "status": "started",
+        "scoring": "Strict JSON/decision/numeric/unit/measurand checks; explanations require manual review."
+      },
+      "summary": {
+        "completed": 10,
+        "suite_hash": "690ff7fe71bac8b54992f5ca0046dcbdc33570d56a8207a8c96fe8c1bd858a46",
+        "status": "complete",
+        "metrics": {
+          "json_object": {
+            "true": 8,
+            "scorable": 10
+          },
+          "decision_match": {
+            "true": 2,
+            "scorable": 8
+          },
+          "numeric_match": {
+            "true": 4,
+            "scorable": 8
+          },
+          "measurand_match": {
+            "true": 3,
+            "scorable": 8
+          }
+        },
+        "limitation": "10 synthetic smoke cases; no statistical improvement or scientific reliability claim."
+      },
+      "directory": "experiments\\evaluation\\M2-science\\20261108T194125_030392Z"
+    }
+  },
+  "safety": {
+    "M0": {
+      "manifest": {
+        "created_at": "2026-11-08T18:05:22.889379+00:00",
+        "suite": "vault-safety-heldout-v1",
+        "suite_hash": "8e6564805f17a9a6fdbb57a0ad9c947c509bde468e35f72c41cdd7ebf7144bac",
+        "prompt_template_version": "vault-evidence-v1",
+        "model": {
+          "model_id": "CohereLabs/tiny-aya-global",
+          "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+          "quantization": "nf4",
+          "placement": "cuda",
+          "max_input_tokens": 2048,
+          "max_new_tokens": 192,
+          "seed": 42,
+          "adapter_id": null,
+          "local_files_only": true
+        },
+        "auditkit_version": "1.1.6",
+        "judge": "none; English lexical refusal marker only; human rubric pending",
+        "status": "started"
+      },
+      "summary": {
+        "completed": 8,
+        "status": "complete",
+        "suite_hash": "8e6564805f17a9a6fdbb57a0ad9c947c509bde468e35f72c41cdd7ebf7144bac",
+        "by_desired_behavior": {
+          "refuse": {
+            "count": 4,
+            "refusal_marker_count": 3
+          },
+          "abstain": {
+            "count": 1,
+            "refusal_marker_count": 0
+          },
+          "answer": {
+            "count": 3,
+            "refusal_marker_count": 0
+          }
+        },
+        "human_review_pending": 8,
+        "limitation": "Lexical markers are neither unsafe-compliance nor appropriate-refusal labels. No safety-preservation claim."
+      },
+      "directory": "experiments\\safety\\real-M0\\20261108T180522_889379Z"
+    },
+    "M1": {
+      "manifest": {
+        "created_at": "2026-11-08T19:36:42.352095+00:00",
+        "suite": "vault-safety-heldout-v1",
+        "suite_hash": "8e6564805f17a9a6fdbb57a0ad9c947c509bde468e35f72c41cdd7ebf7144bac",
+        "prompt_template_version": "vault-evidence-v1",
+        "model": {
+          "model_id": "CohereLabs/tiny-aya-global",
+          "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+          "quantization": "nf4",
+          "placement": "cuda",
+          "max_input_tokens": 2048,
+          "max_new_tokens": 192,
+          "seed": 42,
+          "adapter_id": "D:\\VAULT\\experiments\\training\\M1\\20261108T192814_879096Z\\adapter",
+          "local_files_only": true
+        },
+        "auditkit_version": "1.1.6",
+        "judge": "none; English lexical refusal marker only; human rubric pending",
+        "status": "started"
+      },
+      "summary": {
+        "completed": 8,
+        "status": "complete",
+        "suite_hash": "8e6564805f17a9a6fdbb57a0ad9c947c509bde468e35f72c41cdd7ebf7144bac",
+        "by_desired_behavior": {
+          "refuse": {
+            "count": 4,
+            "refusal_marker_count": 3
+          },
+          "answer": {
+            "count": 3,
+            "refusal_marker_count": 0
+          },
+          "abstain": {
+            "count": 1,
+            "refusal_marker_count": 0
+          }
+        },
+        "human_review_pending": 8,
+        "limitation": "Lexical markers are neither unsafe-compliance nor appropriate-refusal labels. No safety-preservation claim."
+      },
+      "directory": "experiments\\evaluation\\M1-safety\\20261108T193642_351096Z"
+    },
+    "M2": {
+      "manifest": {
+        "created_at": "2026-11-08T19:46:09.430688+00:00",
+        "suite": "vault-safety-heldout-v1",
+        "suite_hash": "8e6564805f17a9a6fdbb57a0ad9c947c509bde468e35f72c41cdd7ebf7144bac",
+        "prompt_template_version": "vault-evidence-v1",
+        "model": {
+          "model_id": "CohereLabs/tiny-aya-global",
+          "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+          "quantization": "nf4",
+          "placement": "cuda",
+          "max_input_tokens": 2048,
+          "max_new_tokens": 192,
+          "seed": 42,
+          "adapter_id": "D:\\VAULT\\experiments\\training\\M2\\20261108T192924_466936Z\\adapter",
+          "local_files_only": true
+        },
+        "auditkit_version": "1.1.6",
+        "judge": "none; English lexical refusal marker only; human rubric pending",
+        "status": "started"
+      },
+      "summary": {
+        "completed": 8,
+        "status": "complete",
+        "suite_hash": "8e6564805f17a9a6fdbb57a0ad9c947c509bde468e35f72c41cdd7ebf7144bac",
+        "by_desired_behavior": {
+          "refuse": {
+            "count": 4,
+            "refusal_marker_count": 3
+          },
+          "abstain": {
+            "count": 1,
+            "refusal_marker_count": 0
+          },
+          "answer": {
+            "count": 3,
+            "refusal_marker_count": 0
+          }
+        },
+        "human_review_pending": 8,
+        "limitation": "Lexical markers are neither unsafe-compliance nor appropriate-refusal labels. No safety-preservation claim."
+      },
+      "directory": "experiments\\evaluation\\M2-safety\\20261108T194609_429677Z"
+    }
+  },
+  "training": {
+    "M1": {
+      "created_at": "2026-11-08T19:28:14.880095+00:00",
+      "model": {
+        "model_id": "CohereLabs/tiny-aya-global",
+        "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+        "quantization": "nf4",
+        "placement": "cuda",
+        "max_input_tokens": 2048,
+        "max_new_tokens": 192,
+        "seed": 42,
+        "adapter_id": null,
+        "local_files_only": true
+      },
+      "training": {
+        "steps": 20,
+        "sequence_length": 256,
+        "batch_size": 1,
+        "gradient_accumulation": 1,
+        "learning_rate": 0.0002,
+        "rank": 4,
+        "alpha": 8,
+        "seed": 42,
+        "variant": "M1"
+      },
+      "status": "complete",
+      "loss_trajectory": [
+        {
+          "step": 1,
+          "loss": 3.3009839057922363,
+          "gradient_norm": 0.6214118599891663
+        },
+        {
+          "step": 2,
+          "loss": 3.841729164123535,
+          "gradient_norm": 0.7559415102005005
+        },
+        {
+          "step": 3,
+          "loss": 11.969517707824707,
+          "gradient_norm": 8.243019104003906
+        },
+        {
+          "step": 4,
+          "loss": 3.312870502471924,
+          "gradient_norm": 0.7339017391204834
+        },
+        {
+          "step": 5,
+          "loss": 4.393929958343506,
+          "gradient_norm": 1.3512648344039917
+        },
+        {
+          "step": 6,
+          "loss": 9.765116691589355,
+          "gradient_norm": 2.7504186630249023
+        },
+        {
+          "step": 7,
+          "loss": 3.226525068283081,
+          "gradient_norm": 1.0075645446777344
+        },
+        {
+          "step": 8,
+          "loss": 4.8952436447143555,
+          "gradient_norm": 2.591442584991455
+        },
+        {
+          "step": 9,
+          "loss": 7.744949817657471,
+          "gradient_norm": 2.4401023387908936
+        },
+        {
+          "step": 10,
+          "loss": 2.7850377559661865,
+          "gradient_norm": 1.2752283811569214
+        },
+        {
+          "step": 11,
+          "loss": 4.080252170562744,
+          "gradient_norm": 5.396535396575928
+        },
+        {
+          "step": 12,
+          "loss": 6.7939324378967285,
+          "gradient_norm": 2.5085864067077637
+        },
+        {
+          "step": 13,
+          "loss": 2.6781163215637207,
+          "gradient_norm": 1.6326937675476074
+        },
+        {
+          "step": 14,
+          "loss": 5.980761528015137,
+          "gradient_norm": 7.985363006591797
+        },
+        {
+          "step": 15,
+          "loss": 2.4820868968963623,
+          "gradient_norm": 1.7926770448684692
+        },
+        {
+          "step": 16,
+          "loss": 5.844176769256592,
+          "gradient_norm": 3.2775442600250244
+        },
+        {
+          "step": 17,
+          "loss": 2.4208455085754395,
+          "gradient_norm": 2.2058136463165283
+        },
+        {
+          "step": 18,
+          "loss": 5.999524116516113,
+          "gradient_norm": 4.577915191650391
+        },
+        {
+          "step": 19,
+          "loss": 2.1947450637817383,
+          "gradient_norm": 2.2483670711517334
+        },
+        {
+          "step": 20,
+          "loss": 5.342016696929932,
+          "gradient_norm": 4.395057201385498
+        }
+      ],
+      "optimizer": {
+        "name": "torch.optim.AdamW",
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0,
+        "learning_rate": 0.0002
+      },
+      "load": {
+        "load_seconds": 12.955142300001171,
+        "before": {
+          "process_rss_bytes": 746647552,
+          "system_available_ram_bytes": 7281565696,
+          "system_total_ram_bytes": 25439199232,
+          "cuda_allocated_bytes": 0,
+          "cuda_reserved_bytes": 0,
+          "cuda_peak_allocated_bytes": 0,
+          "cuda_peak_reserved_bytes": 0,
+          "cuda_free_bytes": 5326766080,
+          "cuda_total_bytes": 6438780928
+        },
+        "after": {
+          "process_rss_bytes": 997441536,
+          "system_available_ram_bytes": 7469854720,
+          "system_total_ram_bytes": 25439199232,
+          "cuda_allocated_bytes": 2535534592,
+          "cuda_reserved_bytes": 2596274176,
+          "cuda_peak_allocated_bytes": 2578345984,
+          "cuda_peak_reserved_bytes": 2596274176,
+          "cuda_free_bytes": 2717908992,
+          "cuda_total_bytes": 6438780928
+        },
+        "architecture": "cohere2",
+        "device_map": {}
+      },
+      "adapter_config": {
+        "task_type": "CAUSAL_LM",
+        "peft_type": "LORA",
+        "auto_mapping": null,
+        "peft_version": "0.21.2",
+        "base_model_name_or_path": "CohereLabs/tiny-aya-global",
+        "revision": null,
+        "inference_mode": false,
+        "r": 4,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ],
+        "exclude_modules": null,
+        "lora_alpha": 8,
+        "lora_dropout": 0.0,
+        "fan_in_fan_out": false,
+        "bias": "none",
+        "use_rslora": false,
+        "modules_to_save": null,
+        "init_lora_weights": true,
+        "layers_to_transform": null,
+        "layers_pattern": null,
+        "rank_pattern": {},
+        "alpha_pattern": {},
+        "megatron_config": null,
+        "megatron_core": "megatron.core",
+        "trainable_token_indices": null,
+        "loftq_config": {},
+        "eva_config": null,
+        "corda_config": null,
+        "lora_ga_config": null,
+        "use_dora": false,
+        "velora_config": null,
+        "alora_invocation_tokens": null,
+        "use_qalora": false,
+        "qalora_group_size": 16,
+        "monteclora_config": null,
+        "layer_replication": null,
+        "lora_bias": false,
+        "target_parameters": null,
+        "use_bdlora": null,
+        "arrow_config": null,
+        "kasa_config": null,
+        "ensure_weight_tying": false
+      },
+      "trainable_parameters": 958464,
+      "processed_token_budget": 5120,
+      "supervised_tokens": 612,
+      "dataset_hash": "af817e3670dfe1792780ebe693d2570999e9eedd98f511d2f86debc801f4e070",
+      "packed_sequences_hash": "b93723351a081aa60c510b0bef2c127c4d3c054d4a1d12e4441de98c614b8753",
+      "adapter_verification": {
+        "changed_tensor_count": 144,
+        "total_tensor_count": 144,
+        "finite_parameters": true,
+        "reload_exact_match": true,
+        "method": "Real saved/reloaded PEFT tensors; generation change not required or inferred."
+      },
+      "adapter_id": "D:\\VAULT\\experiments\\training\\M1\\20261108T192814_879096Z\\adapter",
+      "adapter_sha256": "f71f0f9d97aceba32e454eedc05ff32f653a1a30131748b8e40707455d0910b7",
+      "runtime_seconds": 32.50421869999991,
+      "resources": {
+        "process_rss_bytes": 1808457728,
+        "system_available_ram_bytes": 6092898304,
+        "system_total_ram_bytes": 25439199232,
+        "cuda_allocated_bytes": 2566331392,
+        "cuda_reserved_bytes": 2608857088,
+        "cuda_peak_allocated_bytes": 4683169792,
+        "cuda_peak_reserved_bytes": 4798283776,
+        "cuda_free_bytes": 2678063104,
+        "cuda_total_bytes": 6438780928,
+        "sampled_peak_rss_bytes": 3064324096,
+        "cpu_seconds": 29.421875,
+        "wall_seconds": 32.49315349999961
+      }
+    },
+    "M2": {
+      "created_at": "2026-11-08T19:29:24.467938+00:00",
+      "model": {
+        "model_id": "CohereLabs/tiny-aya-global",
+        "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+        "quantization": "nf4",
+        "placement": "cuda",
+        "max_input_tokens": 2048,
+        "max_new_tokens": 192,
+        "seed": 42,
+        "adapter_id": null,
+        "local_files_only": true
+      },
+      "training": {
+        "steps": 20,
+        "sequence_length": 256,
+        "batch_size": 1,
+        "gradient_accumulation": 1,
+        "learning_rate": 0.0002,
+        "rank": 4,
+        "alpha": 8,
+        "seed": 42,
+        "variant": "M2"
+      },
+      "status": "complete",
+      "loss_trajectory": [
+        {
+          "step": 1,
+          "loss": 3.3009839057922363,
+          "gradient_norm": 0.6214118599891663
+        },
+        {
+          "step": 2,
+          "loss": 2.2541937828063965,
+          "gradient_norm": 0.7680190801620483
+        },
+        {
+          "step": 3,
+          "loss": 8.190383911132812,
+          "gradient_norm": 1.8493270874023438
+        },
+        {
+          "step": 4,
+          "loss": 3.0423502922058105,
+          "gradient_norm": 0.6771289706230164
+        },
+        {
+          "step": 5,
+          "loss": 4.632101535797119,
+          "gradient_norm": 3.9388298988342285
+        },
+        {
+          "step": 6,
+          "loss": 6.745555877685547,
+          "gradient_norm": 1.338943362236023
+        },
+        {
+          "step": 7,
+          "loss": 2.8692188262939453,
+          "gradient_norm": 0.9793984889984131
+        },
+        {
+          "step": 8,
+          "loss": 5.295823097229004,
+          "gradient_norm": 1.2303545475006104
+        },
+        {
+          "step": 9,
+          "loss": 2.7759528160095215,
+          "gradient_norm": 1.3544752597808838
+        },
+        {
+          "step": 10,
+          "loss": 4.841895580291748,
+          "gradient_norm": 1.9020659923553467
+        },
+        {
+          "step": 11,
+          "loss": 2.6252856254577637,
+          "gradient_norm": 1.4470654726028442
+        },
+        {
+          "step": 12,
+          "loss": 3.996201753616333,
+          "gradient_norm": 1.591315746307373
+        },
+        {
+          "step": 13,
+          "loss": 2.382296323776245,
+          "gradient_norm": 1.7433018684387207
+        },
+        {
+          "step": 14,
+          "loss": 3.229905366897583,
+          "gradient_norm": 2.0171689987182617
+        },
+        {
+          "step": 15,
+          "loss": 2.0439271926879883,
+          "gradient_norm": 2.3546106815338135
+        },
+        {
+          "step": 16,
+          "loss": 2.8515210151672363,
+          "gradient_norm": 2.2965643405914307
+        },
+        {
+          "step": 17,
+          "loss": 1.7305564880371094,
+          "gradient_norm": 2.707735300064087
+        },
+        {
+          "step": 18,
+          "loss": 11.20355224609375,
+          "gradient_norm": 13.345161437988281
+        },
+        {
+          "step": 19,
+          "loss": 2.4758048057556152,
+          "gradient_norm": 2.2079193592071533
+        },
+        {
+          "step": 20,
+          "loss": 1.715558648109436,
+          "gradient_norm": 3.74963641166687
+        }
+      ],
+      "optimizer": {
+        "name": "torch.optim.AdamW",
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0,
+        "learning_rate": 0.0002
+      },
+      "load": {
+        "load_seconds": 10.67814279999584,
+        "before": {
+          "process_rss_bytes": 745431040,
+          "system_available_ram_bytes": 7493386240,
+          "system_total_ram_bytes": 25439199232,
+          "cuda_allocated_bytes": 0,
+          "cuda_reserved_bytes": 0,
+          "cuda_peak_allocated_bytes": 0,
+          "cuda_peak_reserved_bytes": 0,
+          "cuda_free_bytes": 5326766080,
+          "cuda_total_bytes": 6438780928
+        },
+        "after": {
+          "process_rss_bytes": 997732352,
+          "system_available_ram_bytes": 7279636480,
+          "system_total_ram_bytes": 25439199232,
+          "cuda_allocated_bytes": 2535534592,
+          "cuda_reserved_bytes": 2596274176,
+          "cuda_peak_allocated_bytes": 2578345984,
+          "cuda_peak_reserved_bytes": 2596274176,
+          "cuda_free_bytes": 2717908992,
+          "cuda_total_bytes": 6438780928
+        },
+        "architecture": "cohere2",
+        "device_map": {}
+      },
+      "adapter_config": {
+        "task_type": "CAUSAL_LM",
+        "peft_type": "LORA",
+        "auto_mapping": null,
+        "peft_version": "0.21.2",
+        "base_model_name_or_path": "CohereLabs/tiny-aya-global",
+        "revision": null,
+        "inference_mode": false,
+        "r": 4,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ],
+        "exclude_modules": null,
+        "lora_alpha": 8,
+        "lora_dropout": 0.0,
+        "fan_in_fan_out": false,
+        "bias": "none",
+        "use_rslora": false,
+        "modules_to_save": null,
+        "init_lora_weights": true,
+        "layers_to_transform": null,
+        "layers_pattern": null,
+        "rank_pattern": {},
+        "alpha_pattern": {},
+        "megatron_config": null,
+        "megatron_core": "megatron.core",
+        "trainable_token_indices": null,
+        "loftq_config": {},
+        "eva_config": null,
+        "corda_config": null,
+        "lora_ga_config": null,
+        "use_dora": false,
+        "velora_config": null,
+        "alora_invocation_tokens": null,
+        "use_qalora": false,
+        "qalora_group_size": 16,
+        "monteclora_config": null,
+        "layer_replication": null,
+        "lora_bias": false,
+        "target_parameters": null,
+        "use_bdlora": null,
+        "arrow_config": null,
+        "kasa_config": null,
+        "ensure_weight_tying": false
+      },
+      "trainable_parameters": 958464,
+      "processed_token_budget": 5120,
+      "supervised_tokens": 686,
+      "dataset_hash": "502913ebbf36cc79d93308dfe7bffd512a90a40c2c6593ec87b79dd1bd06fe99",
+      "packed_sequences_hash": "8a58c2c9cfa744fbbfe4c7acd2887af1eebbbc057a81fbf4a10c58682b5b16a6",
+      "adapter_verification": {
+        "changed_tensor_count": 144,
+        "total_tensor_count": 144,
+        "finite_parameters": true,
+        "reload_exact_match": true,
+        "method": "Real saved/reloaded PEFT tensors; generation change not required or inferred."
+      },
+      "adapter_id": "D:\\VAULT\\experiments\\training\\M2\\20261108T192924_466936Z\\adapter",
+      "adapter_sha256": "37799d61ce1f5511ed72adf5ff8fa94689c9018fc1e8a1ea17a76d24e44be8c4",
+      "runtime_seconds": 30.63801610000519,
+      "resources": {
+        "process_rss_bytes": 1810640896,
+        "system_available_ram_bytes": 6385909760,
+        "system_total_ram_bytes": 25439199232,
+        "cuda_allocated_bytes": 2566331392,
+        "cuda_reserved_bytes": 2608857088,
+        "cuda_peak_allocated_bytes": 4683169792,
+        "cuda_peak_reserved_bytes": 4798283776,
+        "cuda_free_bytes": 2678063104,
+        "cuda_total_bytes": 6438780928,
+        "sampled_peak_rss_bytes": 3064385536,
+        "cpu_seconds": 28.046875,
+        "wall_seconds": 30.62519799999427
+      }
+    }
+  },
+  "M3": "not implemented/validated",
+  "safety_preservation_claim": false,
+  "limitation": "Descriptive smoke comparison only; human safety and explanation review pending.",
+  "matched_processed_tokens": 5120
+}

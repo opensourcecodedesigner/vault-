@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-11-08T19:29:24.467938+00:00",
+  "model": {
+    "model_id": "CohereLabs/tiny-aya-global",
+    "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+    "quantization": "nf4",
+    "placement": "cuda",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 192,
+    "seed": 42,
+    "adapter_id": null,
+    "local_files_only": true
+  },
+  "training": {
+    "steps": 20,
+    "sequence_length": 256,
+    "batch_size": 1,
+    "gradient_accumulation": 1,
+    "learning_rate": 0.0002,
+    "rank": 4,
+    "alpha": 8,
+    "seed": 42,
+    "variant": "M2"
+  },
+  "status": "started",
+  "loss_trajectory": [],
+  "optimizer": {
+    "name": "torch.optim.AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0,
+    "learning_rate": 0.0002
+  }
+}

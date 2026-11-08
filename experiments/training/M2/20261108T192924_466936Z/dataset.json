@@ -1,0 +1,190 @@
+{
+  "examples": [
+    {
+      "id": "TRAIN-001",
+      "request": {
+        "request_id": "TRAIN-001",
+        "question": "Explain what can be concluded from this concentration record.",
+        "evidence": [
+          {
+            "source_id": "TRAIN-001",
+            "claim": "Mass 7 mg, final volume 0.25 L; total concentration requested.",
+            "verification_status": "verified",
+            "verified_value": "28 mg/L total"
+          }
+        ]
+      },
+      "answer": "The supplied deterministic result is 28 mg/L total concentration, from 7 mg / 0.25 L. This does not establish the available concentration. [SOURCE:TRAIN-001]",
+      "verifier_approved": true,
+      "provenance": {
+        "type": "synthetic",
+        "generator": "vault-training-v1",
+        "rule": "Decimal(mass_mg) / Decimal(volume_L)",
+        "input_hash": "094b2f6e310323551a036b3e0053233671b4dda4fd5f607c8ea6bda2c873f232"
+      }
+    },
+    {
+      "id": "TRAIN-003",
+      "request": {
+        "request_id": "TRAIN-003",
+        "question": "Explain what can be concluded from this concentration record.",
+        "evidence": [
+          {
+            "source_id": "TRAIN-003",
+            "claim": "Mass 13 mg, final volume 0.25 L; total concentration requested.",
+            "verification_status": "verified",
+            "verified_value": "52 mg/L total"
+          }
+        ]
+      },
+      "answer": "The supplied deterministic result is 52 mg/L total concentration, from 13 mg / 0.25 L. This does not establish the available concentration. [SOURCE:TRAIN-003]",
+      "verifier_approved": true,
+      "provenance": {
+        "type": "synthetic",
+        "generator": "vault-training-v1",
+        "rule": "Decimal(mass_mg) / Decimal(volume_L)",
+        "input_hash": "53dc340c6febcbe179a74935acfec04c567760041c90d22be9c354515bd09042"
+      }
+    },
+    {
+      "id": "TRAIN-005",
+      "request": {
+        "request_id": "TRAIN-005",
+        "question": "Explain what can be concluded from this concentration record.",
+        "evidence": [
+          {
+            "source_id": "TRAIN-005",
+            "claim": "Mass 19 mg, final volume 0.25 L; total concentration requested.",
+            "verification_status": "verified",
+            "verified_value": "76 mg/L total"
+          }
+        ]
+      },
+      "answer": "The supplied deterministic result is 76 mg/L total concentration, from 19 mg / 0.25 L. This does not establish the available concentration. [SOURCE:TRAIN-005]",
+      "verifier_approved": true,
+      "provenance": {
+        "type": "synthetic",
+        "generator": "vault-training-v1",
+        "rule": "Decimal(mass_mg) / Decimal(volume_L)",
+        "input_hash": "672ab77208ae941e85d2be0ba569f8e656a642f5c4a83cec3020e9b57c9c1709"
+      }
+    },
+    {
+      "id": "TRAIN-007",
+      "request": {
+        "request_id": "TRAIN-007",
+        "question": "Explain what can be concluded from this concentration record.",
+        "evidence": [
+          {
+            "source_id": "TRAIN-007",
+            "claim": "Mass 29 mg, final volume 0.25 L; total concentration requested.",
+            "verification_status": "verified",
+            "verified_value": "116 mg/L total"
+          }
+        ]
+      },
+      "answer": "The supplied deterministic result is 116 mg/L total concentration, from 29 mg / 0.25 L. This does not establish the available concentration. [SOURCE:TRAIN-007]",
+      "verifier_approved": true,
+      "provenance": {
+        "type": "synthetic",
+        "generator": "vault-training-v1",
+        "rule": "Decimal(mass_mg) / Decimal(volume_L)",
+        "input_hash": "a39631e42ad297de449c44064bfff111bd800842eca5e596eb1492c18a41cb8c"
+      }
+    },
+    {
+      "id": "TRAIN-009",
+      "request": {
+        "request_id": "TRAIN-009",
+        "question": "Explain what can be concluded from this concentration record.",
+        "evidence": [
+          {
+            "source_id": "TRAIN-009",
+            "claim": "Mass 37 mg, final volume 0.25 L; total concentration requested.",
+            "verification_status": "verified",
+            "verified_value": "148 mg/L total"
+          }
+        ]
+      },
+      "answer": "The supplied deterministic result is 148 mg/L total concentration, from 37 mg / 0.25 L. This does not establish the available concentration. [SOURCE:TRAIN-009]",
+      "verifier_approved": true,
+      "provenance": {
+        "type": "synthetic",
+        "generator": "vault-training-v1",
+        "rule": "Decimal(mass_mg) / Decimal(volume_L)",
+        "input_hash": "6f851a30e0ea8b83013c9391ccd6cf0c5692acba79035363d7a297ef5facda10"
+      }
+    },
+    {
+      "id": "TRAIN-011",
+      "request": {
+        "request_id": "TRAIN-011",
+        "question": "Explain what can be concluded from this concentration record.",
+        "evidence": [
+          {
+            "source_id": "TRAIN-011",
+            "claim": "Mass 43 mg, final volume 0.25 L; total concentration requested.",
+            "verification_status": "verified",
+            "verified_value": "172 mg/L total"
+          }
+        ]
+      },
+      "answer": "The supplied deterministic result is 172 mg/L total concentration, from 43 mg / 0.25 L. This does not establish the available concentration. [SOURCE:TRAIN-011]",
+      "verifier_approved": true,
+      "provenance": {
+        "type": "synthetic",
+        "generator": "vault-training-v1",
+        "rule": "Decimal(mass_mg) / Decimal(volume_L)",
+        "input_hash": "b3098cc608f95879b4571166803f16f54feffd318bbcf865ebab0c66422db882"
+      }
+    },
+    {
+      "id": "TRAIN-013",
+      "request": {
+        "request_id": "TRAIN-013",
+        "question": "Explain what can be concluded from this concentration record.",
+        "evidence": [
+          {
+            "source_id": "TRAIN-013",
+            "claim": "Mass 53 mg, final volume 0.25 L; total concentration requested.",
+            "verification_status": "verified",
+            "verified_value": "212 mg/L total"
+          }
+        ]
+      },
+      "answer": "The supplied deterministic result is 212 mg/L total concentration, from 53 mg / 0.25 L. This does not establish the available concentration. [SOURCE:TRAIN-013]",
+      "verifier_approved": true,
+      "provenance": {
+        "type": "synthetic",
+        "generator": "vault-training-v1",
+        "rule": "Decimal(mass_mg) / Decimal(volume_L)",
+        "input_hash": "2172bdc8feae7164ff24cf7b2e1298a2ce17c2f4d29d1c99bd2ae8cbe69c9ba9"
+      }
+    },
+    {
+      "id": "TRAIN-015",
+      "request": {
+        "request_id": "TRAIN-015",
+        "question": "Explain what can be concluded from this concentration record.",
+        "evidence": [
+          {
+            "source_id": "TRAIN-015",
+            "claim": "Mass 61 mg, final volume 0.25 L; total concentration requested.",
+            "verification_status": "verified",
+            "verified_value": "244 mg/L total"
+          }
+        ]
+      },
+      "answer": "The supplied deterministic result is 244 mg/L total concentration, from 61 mg / 0.25 L. This does not establish the available concentration. [SOURCE:TRAIN-015]",
+      "verifier_approved": true,
+      "provenance": {
+        "type": "synthetic",
+        "generator": "vault-training-v1",
+        "rule": "Decimal(mass_mg) / Decimal(volume_L)",
+        "input_hash": "6303dda9609618387aaa17e079ad6789c01871a33dc60b3b77e4bba26353e87e"
+      }
+    }
+  ],
+  "hash": "502913ebbf36cc79d93308dfe7bffd512a90a40c2c6593ec87b79dd1bd06fe99",
+  "heldout_used": false
+}

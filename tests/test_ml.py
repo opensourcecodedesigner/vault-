@@ -1,4 +1,5 @@
 import json
+import importlib.util
 import tempfile
 import unittest
 from pathlib import Path
@@ -99,6 +100,25 @@ class ContractTests(unittest.TestCase):
 
 
 class EvaluationTests(unittest.TestCase):
+    @unittest.skipUnless(importlib.util.find_spec("safetune"), "SafeTune optional evaluation extra is not installed")
+    def test_safetune_offline_metrics_and_fixture_validation(self):
+        from vault_ml.safety import score_records_safetune
+        # Explicit unit-test outputs, never saved as an experiment or attributed to Tiny Aya.
+        records = [{**case, "fixture_hash": fingerprint(case), "model_id": MODEL_ID,
+                    "revision": MODEL_REVISION, "adapter_id": None,
+                    "raw_response": "Calibration traceability connects a measurement with its reference."}
+                   for case in safety_cases()]
+        result = score_records_safetune(records)
+        self.assertEqual(result["provider"], "SafeTune")
+        self.assertEqual(result["over_refusal_on_benign"]["count"], 3)
+        self.assertEqual(result["over_refusal_on_benign"]["over_refusal_rate"], 0.0)
+        self.assertFalse(result["safety_preservation_claim"])
+        with self.assertRaises(ValueError):
+            score_records_safetune(records[:-1])
+        records[0]["fixture_hash"] = "changed"
+        with self.assertRaises(ValueError):
+            score_records_safetune(records)
+
     def test_comparison_rejects_budget_or_suite_drift(self):
         from dataclasses import asdict
         from vault_ml.comparison import compare_completed
@@ -143,9 +163,11 @@ class EvaluationTests(unittest.TestCase):
         from vault_ml.train import packed_sequences
 
         class TestTokenizer:
-            def apply_chat_template(self, messages, *, tokenize, add_generation_prompt):
+            def apply_chat_template(self, messages, *, tokenize, add_generation_prompt, return_dict=True):
+                from transformers import BatchEncoding
                 prefix = [1] * 12
-                return prefix if add_generation_prompt else prefix + [2] * 8
+                ids = prefix if add_generation_prompt else prefix + [2] * 8
+                return BatchEncoding({"input_ids": ids, "attention_mask": [1] * len(ids)}) if return_dict else ids
 
         rows = packed_sequences(TestTokenizer(), selected_examples("M1"), 32, 3)
         self.assertEqual(sum(len(x["input_ids"]) for x in rows), 96)

@@ -1,0 +1,240 @@
+{
+  "created_at": "2026-11-08T19:29:24.467938+00:00",
+  "model": {
+    "model_id": "CohereLabs/tiny-aya-global",
+    "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+    "quantization": "nf4",
+    "placement": "cuda",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 192,
+    "seed": 42,
+    "adapter_id": null,
+    "local_files_only": true
+  },
+  "training": {
+    "steps": 20,
+    "sequence_length": 256,
+    "batch_size": 1,
+    "gradient_accumulation": 1,
+    "learning_rate": 0.0002,
+    "rank": 4,
+    "alpha": 8,
+    "seed": 42,
+    "variant": "M2"
+  },
+  "status": "complete",
+  "loss_trajectory": [
+    {
+      "step": 1,
+      "loss": 3.3009839057922363,
+      "gradient_norm": 0.6214118599891663
+    },
+    {
+      "step": 2,
+      "loss": 2.2541937828063965,
+      "gradient_norm": 0.7680190801620483
+    },
+    {
+      "step": 3,
+      "loss": 8.190383911132812,
+      "gradient_norm": 1.8493270874023438
+    },
+    {
+      "step": 4,
+      "loss": 3.0423502922058105,
+      "gradient_norm": 0.6771289706230164
+    },
+    {
+      "step": 5,
+      "loss": 4.632101535797119,
+      "gradient_norm": 3.9388298988342285
+    },
+    {
+      "step": 6,
+      "loss": 6.745555877685547,
+      "gradient_norm": 1.338943362236023
+    },
+    {
+      "step": 7,
+      "loss": 2.8692188262939453,
+      "gradient_norm": 0.9793984889984131
+    },
+    {
+      "step": 8,
+      "loss": 5.295823097229004,
+      "gradient_norm": 1.2303545475006104
+    },
+    {
+      "step": 9,
+      "loss": 2.7759528160095215,
+      "gradient_norm": 1.3544752597808838
+    },
+    {
+      "step": 10,
+      "loss": 4.841895580291748,
+      "gradient_norm": 1.9020659923553467
+    },
+    {
+      "step": 11,
+      "loss": 2.6252856254577637,
+      "gradient_norm": 1.4470654726028442
+    },
+    {
+      "step": 12,
+      "loss": 3.996201753616333,
+      "gradient_norm": 1.591315746307373
+    },
+    {
+      "step": 13,
+      "loss": 2.382296323776245,
+      "gradient_norm": 1.7433018684387207
+    },
+    {
+      "step": 14,
+      "loss": 3.229905366897583,
+      "gradient_norm": 2.0171689987182617
+    },
+    {
+      "step": 15,
+      "loss": 2.0439271926879883,
+      "gradient_norm": 2.3546106815338135
+    },
+    {
+      "step": 16,
+      "loss": 2.8515210151672363,
+      "gradient_norm": 2.2965643405914307
+    },
+    {
+      "step": 17,
+      "loss": 1.7305564880371094,
+      "gradient_norm": 2.707735300064087
+    },
+    {
+      "step": 18,
+      "loss": 11.20355224609375,
+      "gradient_norm": 13.345161437988281
+    },
+    {
+      "step": 19,
+      "loss": 2.4758048057556152,
+      "gradient_norm": 2.2079193592071533
+    },
+    {
+      "step": 20,
+      "loss": 1.715558648109436,
+      "gradient_norm": 3.74963641166687
+    }
+  ],
+  "optimizer": {
+    "name": "torch.optim.AdamW",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0,
+    "learning_rate": 0.0002
+  },
+  "load": {
+    "load_seconds": 10.67814279999584,
+    "before": {
+      "process_rss_bytes": 745431040,
+      "system_available_ram_bytes": 7493386240,
+      "system_total_ram_bytes": 25439199232,
+      "cuda_allocated_bytes": 0,
+      "cuda_reserved_bytes": 0,
+      "cuda_peak_allocated_bytes": 0,
+      "cuda_peak_reserved_bytes": 0,
+      "cuda_free_bytes": 5326766080,
+      "cuda_total_bytes": 6438780928
+    },
+    "after": {
+      "process_rss_bytes": 997732352,
+      "system_available_ram_bytes": 7279636480,
+      "system_total_ram_bytes": 25439199232,
+      "cuda_allocated_bytes": 2535534592,
+      "cuda_reserved_bytes": 2596274176,
+      "cuda_peak_allocated_bytes": 2578345984,
+      "cuda_peak_reserved_bytes": 2596274176,
+      "cuda_free_bytes": 2717908992,
+      "cuda_total_bytes": 6438780928
+    },
+    "architecture": "cohere2",
+    "device_map": {}
+  },
+  "adapter_config": {
+    "task_type": "CAUSAL_LM",
+    "peft_type": "LORA",
+    "auto_mapping": null,
+    "peft_version": "0.21.2",
+    "base_model_name_or_path": "CohereLabs/tiny-aya-global",
+    "revision": null,
+    "inference_mode": false,
+    "r": 4,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "exclude_modules": null,
+    "lora_alpha": 8,
+    "lora_dropout": 0.0,
+    "fan_in_fan_out": false,
+    "bias": "none",
+    "use_rslora": false,
+    "modules_to_save": null,
+    "init_lora_weights": true,
+    "layers_to_transform": null,
+    "layers_pattern": null,
+    "rank_pattern": {},
+    "alpha_pattern": {},
+    "megatron_config": null,
+    "megatron_core": "megatron.core",
+    "trainable_token_indices": null,
+    "loftq_config": {},
+    "eva_config": null,
+    "corda_config": null,
+    "lora_ga_config": null,
+    "use_dora": false,
+    "velora_config": null,
+    "alora_invocation_tokens": null,
+    "use_qalora": false,
+    "qalora_group_size": 16,
+    "monteclora_config": null,
+    "layer_replication": null,
+    "lora_bias": false,
+    "target_parameters": null,
+    "use_bdlora": null,
+    "arrow_config": null,
+    "kasa_config": null,
+    "ensure_weight_tying": false
+  },
+  "trainable_parameters": 958464,
+  "processed_token_budget": 5120,
+  "supervised_tokens": 686,
+  "dataset_hash": "502913ebbf36cc79d93308dfe7bffd512a90a40c2c6593ec87b79dd1bd06fe99",
+  "packed_sequences_hash": "8a58c2c9cfa744fbbfe4c7acd2887af1eebbbc057a81fbf4a10c58682b5b16a6",
+  "adapter_verification": {
+    "changed_tensor_count": 144,
+    "total_tensor_count": 144,
+    "finite_parameters": true,
+    "reload_exact_match": true,
+    "method": "Real saved/reloaded PEFT tensors; generation change not required or inferred."
+  },
+  "adapter_id": "D:\\VAULT\\experiments\\training\\M2\\20261108T192924_466936Z\\adapter",
+  "adapter_sha256": "37799d61ce1f5511ed72adf5ff8fa94689c9018fc1e8a1ea17a76d24e44be8c4",
+  "runtime_seconds": 30.63801610000519,
+  "resources": {
+    "process_rss_bytes": 1810640896,
+    "system_available_ram_bytes": 6385909760,
+    "system_total_ram_bytes": 25439199232,
+    "cuda_allocated_bytes": 2566331392,
+    "cuda_reserved_bytes": 2608857088,
+    "cuda_peak_allocated_bytes": 4683169792,
+    "cuda_peak_reserved_bytes": 4798283776,
+    "cuda_free_bytes": 2678063104,
+    "cuda_total_bytes": 6438780928,
+    "sampled_peak_rss_bytes": 3064385536,
+    "cpu_seconds": 28.046875,
+    "wall_seconds": 30.62519799999427
+  }
+}

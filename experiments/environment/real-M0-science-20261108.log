@@ -1,0 +1,13 @@
+W1108 23:26:05.257000 1612 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W1108 23:26:06.254000 1612 .venv\Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+completed science-01
+completed science-02
+completed science-03
+completed science-04
+completed science-05
+completed science-06
+completed science-07
+completed science-08
+completed science-09
+completed science-10
+experiments\baseline\real-M0-science\20261108T175616_976455Z

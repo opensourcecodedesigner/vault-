@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-11-08T17:56:16.976455+00:00",
+  "suite": "vault-science-heldout-v1",
+  "suite_hash": "690ff7fe71bac8b54992f5ca0046dcbdc33570d56a8207a8c96fe8c1bd858a46",
+  "model": {
+    "model_id": "CohereLabs/tiny-aya-global",
+    "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+    "quantization": "nf4",
+    "placement": "cuda",
+    "max_input_tokens": 2048,
+    "max_new_tokens": 192,
+    "seed": 42,
+    "adapter_id": null,
+    "local_files_only": true
+  },
+  "prompt_template_version": "vault-evidence-v1",
+  "status": "started",
+  "scoring": "Strict JSON/decision/numeric/unit/measurand checks; explanations require manual review."
+}

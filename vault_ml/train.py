@@ -21,9 +21,9 @@ def packed_sequences(tokenizer, examples, length, count):
     tokens, labels = [], []
     for example in examples:
         messages = messages_for(InferenceRequest.from_dict(example["request"]))
-        prefix = tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True)
+        prefix = tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True, return_dict=False)
         full = tokenizer.apply_chat_template(messages + [{"role": "assistant", "content": example["answer"]}],
-                                              tokenize=True, add_generation_prompt=False)
+                                              tokenize=True, add_generation_prompt=False, return_dict=False)
         if full[:len(prefix)] != prefix or len(full) <= len(prefix):
             raise ValueError("Chat template does not produce an aligned assistant prefix; audit token masking.")
         tokens.extend(full)
@@ -156,10 +156,14 @@ def main():
     parser.add_argument("--steps", type=int, default=2)
     parser.add_argument("--sequence-length", type=int, default=256)
     parser.add_argument("--output-root", default="experiments/training")
+    parser.add_argument("--local-files-only", action="store_true")
     args = parser.parse_args()
     try:
         config = json.loads(Path(args.config).read_text(encoding="utf-8")) if args.config else {}
-        model_config = ModelConfig(**config.get("model", {}))
+        model_kwargs = dict(config.get("model", {}))
+        if args.local_files_only:
+            model_kwargs["local_files_only"] = True
+        model_config = ModelConfig(**model_kwargs)
         training_config = TrainingConfig(**config.get("training", {"variant": args.variant, "steps": args.steps,
                                                                     "sequence_length": args.sequence_length}))
         print(train(model_config, training_config, args.output_root))

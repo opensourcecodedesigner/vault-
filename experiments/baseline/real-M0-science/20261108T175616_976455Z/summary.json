@@ -1,0 +1,24 @@
+{
+  "completed": 10,
+  "suite_hash": "690ff7fe71bac8b54992f5ca0046dcbdc33570d56a8207a8c96fe8c1bd858a46",
+  "status": "complete",
+  "metrics": {
+    "json_object": {
+      "true": 2,
+      "scorable": 10
+    },
+    "decision_match": {
+      "true": 1,
+      "scorable": 2
+    },
+    "numeric_match": {
+      "true": 1,
+      "scorable": 2
+    },
+    "measurand_match": {
+      "true": 0,
+      "scorable": 2
+    }
+  },
+  "limitation": "10 synthetic smoke cases; no statistical improvement or scientific reliability claim."
+}

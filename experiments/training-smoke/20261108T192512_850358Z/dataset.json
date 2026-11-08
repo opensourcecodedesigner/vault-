@@ -1,0 +1,51 @@
+{
+  "examples": [
+    {
+      "id": "TRAIN-001",
+      "request": {
+        "request_id": "TRAIN-001",
+        "question": "Explain what can be concluded from this concentration record.",
+        "evidence": [
+          {
+            "source_id": "TRAIN-001",
+            "claim": "Mass 7 mg, final volume 0.25 L; total concentration requested.",
+            "verification_status": "verified",
+            "verified_value": "28 mg/L total"
+          }
+        ]
+      },
+      "answer": "The supplied deterministic result is 28 mg/L total concentration, from 7 mg / 0.25 L. This does not establish the available concentration. [SOURCE:TRAIN-001]",
+      "verifier_approved": true,
+      "provenance": {
+        "type": "synthetic",
+        "generator": "vault-training-v1",
+        "rule": "Decimal(mass_mg) / Decimal(volume_L)",
+        "input_hash": "094b2f6e310323551a036b3e0053233671b4dda4fd5f607c8ea6bda2c873f232"
+      }
+    },
+    {
+      "id": "TRAIN-002",
+      "request": {
+        "request_id": "TRAIN-002",
+        "question": "Explain what can be concluded from this concentration record.",
+        "evidence": [
+          {
+            "source_id": "TRAIN-002",
+            "claim": "Mass 11 mg, final volume 0.25 L; total concentration requested.",
+            "verification_status": "unverified"
+          }
+        ]
+      },
+      "answer": "This record has not been verified. Request deterministic verification of mass, volume and measurand before accepting a concentration conclusion. [SOURCE:TRAIN-002]",
+      "verifier_approved": false,
+      "provenance": {
+        "type": "synthetic",
+        "generator": "vault-training-v1",
+        "rule": "Decimal(mass_mg) / Decimal(volume_L)",
+        "input_hash": "3cd017e83946df9efdb23e73eb7e6ae9f1b810a57a92985ef041d897c019e541"
+      }
+    }
+  ],
+  "hash": "2f7b3c01673e75dbd31b9a4bfd6cf608fbdb652932ffcb1899fdee4631a5dc85",
+  "heldout_used": false
+}

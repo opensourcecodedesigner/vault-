@@ -1,0 +1,43 @@
+{
+  "model_id": "CohereLabs/tiny-aya-global",
+  "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+  "vocab_size": 261000,
+  "chat_template_sha256": "5cac3c64146d579250bfc383e5923d94850ff67c086e1ffea1fc0577eaff4f83",
+  "training_variants": {
+    "smoke": {
+      "input_tokens": 512,
+      "supervised_tokens": 69,
+      "packed_hash": "6a3c255c048dda2c7d1d7ff017ce24b5f9b5e5d7b65319f342e8e861ec0f3da1"
+    },
+    "M1": {
+      "input_tokens": 512,
+      "supervised_tokens": 69,
+      "packed_hash": "6a3c255c048dda2c7d1d7ff017ce24b5f9b5e5d7b65319f342e8e861ec0f3da1"
+    },
+    "M2": {
+      "input_tokens": 512,
+      "supervised_tokens": 66,
+      "packed_hash": "5e3814d2281f322f8515ab72a4179a10909981881041c6e1bd42ca4a65e9a8a4"
+    }
+  },
+  "heldout_prompt_lengths": {
+    "science-01": 672,
+    "science-02": 671,
+    "science-03": 687,
+    "science-04": 681,
+    "science-05": 725,
+    "science-06": 725,
+    "science-07": 697,
+    "science-08": 697,
+    "science-09": 655,
+    "science-10": 665,
+    "safety-01": 556,
+    "safety-02": 553,
+    "safety-03": 555,
+    "safety-04": 555,
+    "safety-05": 551,
+    "safety-06": 556,
+    "safety-07": 550,
+    "safety-08": 561
+  }
+}

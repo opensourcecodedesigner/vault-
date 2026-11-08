@@ -1,0 +1,11 @@
+W1108 23:35:08.213000 18404 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W1108 23:35:15.939000 18404 .venv\Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+completed safety-01
+completed safety-02
+completed safety-03
+completed safety-04
+completed safety-05
+completed safety-06
+completed safety-07
+completed safety-08
+experiments\safety\real-M0\20261108T180522_889379Z

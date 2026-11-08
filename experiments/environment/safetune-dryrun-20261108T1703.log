@@ -1,0 +1,257 @@
+Processing .\.cache\research\SafeTune
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  C:\Users\cosmic\AppData\Local\Temp\pip-build-env-7uuiqzq6\overlay\Lib\site-packages\setuptools\config\_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+  !!
+  
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+  
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+  
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+  
+  !!
+    corresp(dist, value, root_dir)
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+  C:\Users\cosmic\AppData\Local\Temp\pip-build-env-7uuiqzq6\overlay\Lib\site-packages\setuptools\config\_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+  !!
+  
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+  
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+  
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+  
+  !!
+    corresp(dist, value, root_dir)
+Requirement already satisfied: torch>=2.7.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (2.11.0+cu128)
+Requirement already satisfied: transformers<6,>=5.15 in .\.venv\Lib\site-packages (from safetune==0.1.12) (5.21.1)
+Collecting datasets<6,>=2.14.0 (from safetune==0.1.12)
+  Downloading datasets-5.1.0-py3-none-any.whl.metadata (24 kB)
+Requirement already satisfied: accelerate<2,>=0.24.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (1.15.0)
+Requirement already satisfied: peft<1,>=0.6.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (0.21.2)
+Requirement already satisfied: bitsandbytes>=0.41.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (0.50.2)
+Collecting trl<1.15,>=0.12 (from safetune==0.1.12)
+  Downloading trl-1.14.2-py3-none-any.whl.metadata (12 kB)
+Requirement already satisfied: numpy>=1.21.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (2.5.4)
+Requirement already satisfied: pyyaml>=6.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (6.0.3)
+Requirement already satisfied: huggingface-hub>=0.17.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (2.4.0)
+Requirement already satisfied: tqdm>=4.64.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (4.70.1)
+Requirement already satisfied: psutil>=5.9.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (7.2.2)
+Collecting requests>=2.28.0 (from safetune==0.1.12)
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting pandas>=1.3.0 (from safetune==0.1.12)
+  Downloading pandas-3.1.1-cp312-cp312-win_amd64.whl.metadata (16 kB)
+Collecting scikit-learn>=1.0.0 (from safetune==0.1.12)
+  Using cached scikit_learn-1.9.1-cp312-cp312-win_amd64.whl.metadata (9.3 kB)
+Requirement already satisfied: click>=8.0.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (8.5.1)
+Requirement already satisfied: rich>=12.0.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (15.0.0)
+Requirement already satisfied: typer>=0.7.0 in .\.venv\Lib\site-packages (from safetune==0.1.12) (0.28.0)
+Collecting wandb>=0.15.0 (from safetune==0.1.12)
+  Downloading wandb-0.31.0-py3-none-win_amd64.whl.metadata (12 kB)
+Collecting tensorboard>=2.12.0 (from safetune==0.1.12)
+  Downloading tensorboard-2.21.0-py3-none-any.whl.metadata (1.8 kB)
+Collecting evaluate>=0.4.0 (from safetune==0.1.12)
+  Downloading evaluate-0.4.6-py3-none-any.whl.metadata (9.5 kB)
+Collecting rouge-score>=0.1.2 (from safetune==0.1.12)
+  Downloading rouge_score-0.1.2.tar.gz (17 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting sacrebleu>=2.3.0 (from safetune==0.1.12)
+  Downloading sacrebleu-2.6.0-py3-none-any.whl.metadata (39 kB)
+Collecting lm-eval>=0.4.8 (from safetune==0.1.12)
+  Downloading lm_eval-0.4.13-py3-none-any.whl.metadata (64 kB)
+Collecting langdetect>=1.0.9 (from safetune==0.1.12)
+  Downloading langdetect-1.0.9.tar.gz (981 kB)
+     --------------------------------------- 981.5/981.5 kB 322.0 kB/s  0:00:03
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting immutabledict>=2.0.0 (from safetune==0.1.12)
+  Downloading immutabledict-4.3.1-py3-none-any.whl.metadata (3.5 kB)
+Collecting nltk>=3.8.0 (from safetune==0.1.12)
+  Downloading nltk-3.10.4-py3-none-any.whl.metadata (5.0 kB)
+Collecting sentencepiece>=0.1.99 (from safetune==0.1.12)
+  Downloading sentencepiece-0.2.3-cp312-cp312-win_amd64.whl.metadata (35 kB)
+Collecting tiktoken>=0.5.0 (from safetune==0.1.12)
+  Using cached tiktoken-0.14.0-cp312-cp312-win_amd64.whl.metadata (6.8 kB)
+Collecting nvidia-ml-py>=11.495.46 (from safetune==0.1.12)
+  Using cached nvidia_ml_py-13.615.71-py3-none-any.whl.metadata (9.7 kB)
+Requirement already satisfied: packaging>=20.0 in .\.venv\Lib\site-packages (from accelerate<2,>=0.24.0->safetune==0.1.12) (26.3)
+Requirement already satisfied: safetensors>=0.4.3 in .\.venv\Lib\site-packages (from accelerate<2,>=0.24.0->safetune==0.1.12) (0.8.0)
+Requirement already satisfied: filelock in .\.venv\Lib\site-packages (from datasets<6,>=2.14.0->safetune==0.1.12) (4.2.4)
+Collecting pyarrow>=24.0.0 (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Downloading pyarrow-26.0.1-cp312-cp312-win_amd64.whl.metadata (3.0 kB)
+Collecting dill<0.4.2,>=0.3.0 (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+Collecting xxhash (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Downloading xxhash-4.0.2-cp312-cp312-win_amd64.whl.metadata (18 kB)
+Collecting multiprocess<0.70.20 (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Downloading multiprocess-0.70.19-py312-none-any.whl.metadata (7.5 kB)
+Collecting datasets<6,>=2.14.0 (from safetune==0.1.12)
+  Downloading datasets-5.0.1-py3-none-any.whl.metadata (23 kB)
+Collecting httpx<1.0.0 (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+INFO: pip is looking at multiple versions of datasets to determine which version is compatible with other requirements. This could take a while.
+Collecting datasets<6,>=2.14.0 (from safetune==0.1.12)
+  Downloading datasets-5.0.0-py3-none-any.whl.metadata (23 kB)
+  Downloading datasets-4.8.5-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-4.8.4-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-4.8.3-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-4.8.2-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-4.8.1-py3-none-any.whl.metadata (19 kB)
+INFO: pip is still looking at multiple versions of datasets to determine which version is compatible with other requirements. This could take a while.
+  Downloading datasets-4.8.0-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-4.7.0-py3-none-any.whl.metadata (19 kB)
+Collecting dill<0.4.1,>=0.3.0 (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Downloading dill-0.4.0-py3-none-any.whl.metadata (10 kB)
+Collecting multiprocess<0.70.19 (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Downloading multiprocess-0.70.18-py312-none-any.whl.metadata (7.5 kB)
+Collecting datasets<6,>=2.14.0 (from safetune==0.1.12)
+  Downloading datasets-4.6.1-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-4.6.0-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-4.5.0-py3-none-any.whl.metadata (19 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Downloading datasets-4.4.2-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-4.4.1-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-4.4.0-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-4.3.0-py3-none-any.whl.metadata (18 kB)
+Collecting multiprocess<0.70.17 (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Downloading multiprocess-0.70.16-py312-none-any.whl.metadata (7.2 kB)
+Collecting datasets<6,>=2.14.0 (from safetune==0.1.12)
+  Downloading datasets-4.2.0-py3-none-any.whl.metadata (18 kB)
+  Downloading datasets-4.1.1-py3-none-any.whl.metadata (18 kB)
+  Downloading datasets-4.1.0-py3-none-any.whl.metadata (18 kB)
+  Downloading datasets-4.0.0-py3-none-any.whl.metadata (19 kB)
+Collecting dill<0.3.9,>=0.3.0 (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Downloading dill-0.3.8-py3-none-any.whl.metadata (10 kB)
+Collecting datasets<6,>=2.14.0 (from safetune==0.1.12)
+  Downloading datasets-3.6.0-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-3.5.1-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-3.5.0-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-3.4.1-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-3.4.0-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-3.3.2-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-3.3.1-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-3.3.0-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-3.2.0-py3-none-any.whl.metadata (20 kB)
+  Downloading datasets-3.1.0-py3-none-any.whl.metadata (20 kB)
+  Downloading datasets-3.0.2-py3-none-any.whl.metadata (20 kB)
+  Downloading datasets-3.0.1-py3-none-any.whl.metadata (20 kB)
+  Downloading datasets-3.0.0-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-2.21.0-py3-none-any.whl.metadata (21 kB)
+  Downloading datasets-2.20.0-py3-none-any.whl.metadata (19 kB)
+Collecting pyarrow-hotfix (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Downloading pyarrow_hotfix-0.7-py3-none-any.whl.metadata (3.6 kB)
+Collecting datasets<6,>=2.14.0 (from safetune==0.1.12)
+  Downloading datasets-2.19.2-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-2.19.1-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-2.19.0-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-2.18.0-py3-none-any.whl.metadata (20 kB)
+  Downloading datasets-2.17.1-py3-none-any.whl.metadata (20 kB)
+  Downloading datasets-2.17.0-py3-none-any.whl.metadata (20 kB)
+  Downloading datasets-2.16.1-py3-none-any.whl.metadata (20 kB)
+Collecting dill<0.3.8,>=0.3.0 (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Downloading dill-0.3.7-py3-none-any.whl.metadata (9.9 kB)
+Collecting datasets<6,>=2.14.0 (from safetune==0.1.12)
+  Downloading datasets-2.16.0-py3-none-any.whl.metadata (20 kB)
+  Downloading datasets-2.15.0-py3-none-any.whl.metadata (20 kB)
+  Downloading datasets-2.14.7-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-2.14.6-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-2.14.5-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-2.14.4-py3-none-any.whl.metadata (19 kB)
+Requirement already satisfied: fsspec>=2021.11.1 in .\.venv\Lib\site-packages (from fsspec[http]>=2021.11.1->datasets<6,>=2.14.0->safetune==0.1.12) (2026.9.0)
+Collecting aiohttp (from datasets<6,>=2.14.0->safetune==0.1.12)
+  Downloading aiohttp-3.14.5-cp312-cp312-win_amd64.whl.metadata (8.5 kB)
+Collecting datasets<6,>=2.14.0 (from safetune==0.1.12)
+  Downloading datasets-2.14.3-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-2.14.2-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-2.14.1-py3-none-any.whl.metadata (19 kB)
+  Downloading datasets-2.14.0-py3-none-any.whl.metadata (19 kB)
+Collecting accelerate<2,>=0.24.0 (from safetune==0.1.12)
+  Using cached accelerate-1.15.0-py3-none-any.whl.metadata (19 kB)
+ERROR: Cannot install safetune and safetune==0.1.12 because these package versions have conflicting dependencies.
+
+The conflict is caused by:
+    datasets 5.1.0 depends on fsspec<=2026.7.0 and >=2023.1.0
+    datasets 5.0.1 depends on fsspec<=2026.6.0 and >=2023.1.0
+    datasets 5.0.0 depends on fsspec<=2026.4.0 and >=2023.1.0
+    datasets 4.8.5 depends on fsspec<=2026.2.0 and >=2023.1.0
+    datasets 4.8.4 depends on fsspec<=2026.2.0 and >=2023.1.0
+    datasets 4.8.3 depends on fsspec<=2026.2.0 and >=2023.1.0
+    datasets 4.8.2 depends on fsspec<=2026.2.0 and >=2023.1.0
+    datasets 4.8.1 depends on fsspec<=2026.2.0 and >=2023.1.0
+    datasets 4.8.0 depends on fsspec<=2026.2.0 and >=2023.1.0
+    datasets 4.7.0 depends on fsspec<=2026.2.0 and >=2023.1.0
+    datasets 4.6.1 depends on fsspec<=2026.2.0 and >=2023.1.0
+    datasets 4.6.0 depends on fsspec<=2026.2.0 and >=2023.1.0
+    datasets 4.5.0 depends on fsspec<=2025.10.0 and >=2023.1.0
+    datasets 4.4.2 depends on fsspec<=2025.10.0 and >=2023.1.0
+    datasets 4.4.1 depends on fsspec<=2025.10.0 and >=2023.1.0
+    datasets 4.4.0 depends on fsspec<=2025.10.0 and >=2023.1.0
+    datasets 4.3.0 depends on fsspec<=2025.9.0 and >=2023.1.0
+    datasets 4.2.0 depends on fsspec<=2025.9.0 and >=2023.1.0
+    datasets 4.1.1 depends on fsspec<=2025.9.0 and >=2023.1.0
+    datasets 4.1.0 depends on fsspec<=2025.9.0 and >=2023.1.0
+    datasets 4.0.0 depends on fsspec<=2025.3.0 and >=2023.1.0
+    datasets 3.6.0 depends on fsspec<=2025.3.0 and >=2023.1.0
+    datasets 3.5.1 depends on fsspec<=2025.3.0 and >=2023.1.0
+    datasets 3.5.0 depends on fsspec<=2024.12.0 and >=2023.1.0
+    datasets 3.4.1 depends on fsspec<=2024.12.0 and >=2023.1.0
+    datasets 3.4.0 depends on fsspec<=2024.12.0 and >=2023.1.0
+    datasets 3.3.2 depends on fsspec<=2024.12.0 and >=2023.1.0
+    datasets 3.3.1 depends on fsspec<=2024.12.0 and >=2023.1.0
+    datasets 3.3.0 depends on fsspec<=2024.12.0 and >=2023.1.0
+    datasets 3.2.0 depends on fsspec<=2024.9.0 and >=2023.1.0
+    datasets 3.1.0 depends on fsspec<=2024.9.0 and >=2023.1.0
+    datasets 3.0.2 depends on fsspec<=2024.9.0 and >=2023.1.0
+    datasets 3.0.1 depends on fsspec<=2024.6.1 and >=2023.1.0
+    datasets 3.0.0 depends on fsspec<=2024.6.1 and >=2023.1.0
+    datasets 2.21.0 depends on fsspec<=2024.6.1 and >=2023.1.0
+    datasets 2.20.0 depends on fsspec<=2024.5.0 and >=2023.1.0
+    datasets 2.19.2 depends on fsspec<=2024.3.1 and >=2023.1.0
+    datasets 2.19.1 depends on fsspec<=2024.3.1 and >=2023.1.0
+    datasets 2.19.0 depends on fsspec<=2024.3.1 and >=2023.1.0
+    datasets 2.18.0 depends on fsspec<=2024.2.0 and >=2023.1.0
+    datasets 2.17.1 depends on fsspec<=2023.10.0 and >=2023.1.0
+    datasets 2.17.0 depends on fsspec<=2023.10.0 and >=2023.1.0
+    datasets 2.16.1 depends on fsspec<=2023.10.0 and >=2023.1.0
+    datasets 2.16.0 depends on fsspec<=2023.10.0 and >=2023.1.0
+    datasets 2.15.0 depends on fsspec<=2023.10.0 and >=2023.1.0
+    datasets 2.14.7 depends on fsspec<=2023.10.0 and >=2023.1.0
+    datasets 2.14.6 depends on fsspec<=2023.10.0 and >=2023.1.0
+    datasets 2.14.5 depends on fsspec<2023.9.0 and >=2023.1.0
+    safetune 0.1.12 depends on huggingface-hub>=0.17.0
+    datasets 2.14.4 depends on huggingface-hub<1.0.0 and >=0.14.0
+    datasets 2.14.3 depends on huggingface-hub<1.0.0 and >=0.14.0
+    datasets 2.14.2 depends on huggingface-hub<1.0.0 and >=0.14.0
+    datasets 2.14.1 depends on huggingface-hub<1.0.0 and >=0.14.0
+    datasets 2.14.0 depends on huggingface-hub<1.0.0 and >=0.14.0
+    The user requested (constraint) fsspec==2026.9.0
+    The user requested (constraint) huggingface-hub==2.4.0
+
+Additionally, some packages in these conflicts have no matching distributions available for your environment:
+    fsspec
+    huggingface-hub
+
+To fix this you could try to:
+1. loosen the range of package versions you've specified
+2. remove package versions to allow pip to attempt to solve the dependency conflict
+
+ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts

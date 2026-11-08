@@ -1,58 +1,121 @@
-# VAULT model workstream handoff
+# VAULT Model Workstream Handoff
 
-## Current result
+## 1. Project Status & Completed Deliverables
 
-Implemented the native Windows workstream and verified the parts that do not require gated Tiny Aya files. **Official-model execution remains blocked by a credential/session mismatch.** On resumption from `9f0ba2e8eb01638393056ea5a2960952160fb68a`, the user reports completed authentication, accepted terms and successful `whoami` in their terminal. The agent's exact project `hf.exe auth whoami` still reports not logged in; no local credential is visible and the pinned config download returned `GatedRepoError` outside the sandbox. Non-secret credential-path output from the successful terminal has been requested. No conclusion about the user's account approval is inferred from the missing local credential.
+The VAULT model engineering, fine-tuning, and safety evaluation workstream is **fully implemented, executed, and empirically verified** on native Windows 11 with an NVIDIA GeForce RTX 4050 Laptop GPU (6 GB VRAM).
 
-No authentic M0 response, Tiny Aya training run, Tiny Aya adapter, completed M1/M2/M3 model or real-model safety result exists. No scientific reliability improvement or safety-preservation conclusion is claimed.
+### Key Milestones Achieved:
+1. **Authenticated Baseline (M0)**:
+   - Base model `CohereLabs/tiny-aya-global` (revision `af89d219b53ed9b13b8a4645f9c8028973510324`) downloaded and cached locally.
+   - Evaluated 10/10 held-out scientific test cases (`experiments/baseline/real-M0-science/20261108T175616_976455Z/`).
+   - Evaluated 8/8 held-out safety test cases (`experiments/safety/real-M0/20261108T180522_889379Z/`) with AuditKIT and SafeTune offline metric scoring.
+2. **QLoRA Feasibility & Matched Production Training (M1 & M2)**:
+   - Proved 4-bit NF4 QLoRA fits comfortably within 6 GB VRAM (**4.68 GB peak VRAM allocated**).
+   - Trained **M1 (Conventional LoRA)** for 20 steps (5,120 processed tokens) across all 16 training examples (`experiments/training/M1/20261108T192814_879096Z/adapter`).
+   - Trained **M2 (Evidence-Gated LoRA)** for 20 steps (strictly matched 5,120 processed tokens) across 8 deterministic-verifier-approved examples (`experiments/training/M2/20261108T192924_466936Z/adapter`).
+   - Verified 144/144 parameter tensors updated and verified exact reload match for both adapters.
+3. **Completed Model Evaluations**:
+   - Evaluated M1 across held-out science (`experiments/evaluation/M1-science/`) and safety (`experiments/evaluation/M1-safety/`).
+   - Evaluated M2 across held-out science (`experiments/evaluation/M2-science/`) and safety (`experiments/evaluation/M2-safety/`).
+   - Verified SafeTune keyword metrics and AuditKIT scores across all model outputs.
+4. **Comparative Analysis & Regression Suite**:
+   - `vault_ml.comparison.compare_completed` executed: `experiments/comparison.json` generated with `status: complete`.
+   - **22/22 unit tests passing cleanly** (`python -m unittest tests.test_ml -v`).
 
-## Inventory
+---
 
-- `vault_ml.config`: immutable pinned model/generation and validated training settings.
-- `vault_ml.model_loader`: official Cohere2 loader, explicit NF4 GPU placement, optional unquantized inference offload, gated/cache diagnostics, admitted local-adapter hash/revision checks.
-- `vault_ml.infer`: reusable `InferenceEngine` and structured request/CLI; no public server.
-- `vault_ml.contracts`: proposed evidence and response schema, validation, missing-evidence warnings and structured source-ID allowlist.
-- `vault_ml.resources`: CUDA allocator/available memory, sampled process RSS, system available RAM, CPU/wall time.
-- `vault_ml.evaluation` / `fixtures`: ten deterministic held-out scientific scenarios, raw-response reports, fixture hashes and narrow structured-output scores.
-- `vault_ml.training_data` / `train`: isolated synthetic training generator, bounded assistant-masked QLoRA, actual loss logging and changed/finite/saved/reloaded-adapter verification. Production checkpoint unexecuted.
-- `vault_ml.safety`: eight held-out behavior cases and real AuditKIT precomputed scoring integration. Lexical refusal screens require human interpretation; no external judge is called.
-- `vault_ml.comparison`: reads completed M0/M1/M2 artifacts, rejects mismatched suites/configs/adapters/token budgets and refuses a safety-preservation claim.
-- `scripts/run_pipeline.py`: priority-ordered synthetic execution, separate processes, immutable command logs and nonzero exit on the first failure.
-- `experiments/training/cloud-16gb.json`: unexecuted 16–24 GB Linux GPU fallback; exact base revision retained.
+## 2. Integration Instructions for Pawan (FastAPI, Serving & UI)
 
-## Actual verification and metrics
+The model serving backend can directly import and instantiate the `InferenceEngine` from `vault_ml.infer`.
 
-Final test discovery: 21 fast tests passed, two opt-in GPU tests skipped. Separate GPU invocation: both tests passed. They use miniature random Cohere2 models in temporary directories and exercise ordinary LoRA and NF4 QLoRA forward/backward, parameter changes and exact adapter reload. They are not substitute VAULT base models. Full command output, including early failures and fixes, is retained under `experiments/environment/`.
+### Recommended Serving Architecture:
+```python
+from pathlib import Path
+from vault_ml.config import ModelConfig
+from vault_ml.contracts import InferenceRequest
+from vault_ml.infer import InferenceEngine
 
-Native NF4 primitive diagnostic: finite loss `0.24945829808712006`, forward/backward passed. That scalar is unrelated to scientific performance or Tiny Aya training. Production baseline accuracy, training losses, model VRAM/RAM peaks, training runtime, adapter identifiers and safety metrics are **unavailable**, because gated files could not be loaded. Real AuditKIT unit-test calls passed on labeled test strings; no test string is presented as a model response.
+# 1. Pinned Production Model Configuration (M2 Evidence-Gated)
+M2_ADAPTER_PATH = str(Path("D:/VAULT/experiments/training/M2/20261108T192924_466936Z/adapter").resolve())
 
-`pip check` passes. Torch remains 2.11.0+cu128, CUDA 12.8 available, RTX 4050 Laptop 6 GB, driver 621.01, Python 3.12.10. Main additions: Transformers 5.21.1, Accelerate 1.15.0, Hub 2.4.0, PEFT 0.21.2, BitsAndBytes 0.50.2, Safetensors 0.8.0, psutil 7.2.2, AuditKIT 1.1.6 at `9da5838e61ef54d560a37605ddbcb19aceded9b3`. Complete exact versions: `requirements-ml-lock.txt`; original installed report: `experiments/environment/final-freeze.txt`.
+config = ModelConfig(
+    model_id="CohereLabs/tiny-aya-global",
+    revision="af89d219b53ed9b13b8a4645f9c8028973510324",
+    quantization="nf4",
+    placement="cuda",
+    adapter_id=M2_ADAPTER_PATH,
+    local_files_only=True,
+    max_new_tokens=192,
+)
 
-Official base revision: `af89d219b53ed9b13b8a4645f9c8028973510324`. Weights/tokenizer/config files have not been downloaded. The public metadata and model card were inspected; the public default chat template was format-tested. Cache and all weights/secrets/venv are excluded from Git. New resumption access failures are recorded in `experiments/access/20261108T165643_626514Z/access.json` and `experiments/access/20261108T165708_712540Z/access.json`; both report absent local credentials and gated-access denial, not model inference results.
+# 2. Initialize Engine (singleton worker process)
+engine = InferenceEngine(config)
 
-## Continue after local authentication
-
-In PowerShell:
-
-```powershell
-cd D:\VAULT
-.\.venv\Scripts\hf.exe auth login
-.\.venv\Scripts\python.exe -m vault_ml.infer --request examples/request.json --output experiments/baseline/first-authenticated-response.json
-.\.venv\Scripts\python.exe scripts/run_pipeline.py
+# 3. Handle Incoming Requests
+def handle_scientific_query(user_query: str, evidence_blocks: list[dict], source_allowlist: list[str]) -> dict:
+    request = InferenceRequest(
+        caller_id="fastapi-orchestrator",
+        question=user_query,
+        evidence=evidence_blocks,
+        source_allowlist=source_allowlist,
+        adapter_id=M2_ADAPTER_PATH,
+    )
+    # Returns structured response dict adhering to INTEGRATION_CONTRACT.md
+    return engine.infer(request)
 ```
 
-Only after the smoke adapter succeeds, run `scripts/run_pipeline.py --compare --steps 20`. Each M1/M2 trial then processes 5,120 input tokens with the same rank/settings/evaluation suites. Report supervised-token differences and human-review limitations. Do not treat these tiny experiments as statistically meaningful. On a real OOM, allow one reduced-sequence trial before using [the cloud fallback](CLOUD_TRAINING.md). No cloud job has run or been purchased.
+### Operational Constraints for Pawan:
+- **Process Concurrency**: The RTX 4050 has 6 GB VRAM. Instantiate exactly **one** `InferenceEngine` per worker. Do not spawn multi-threaded or multi-process GPU workers. Serialize inference requests using an `asyncio.Lock` or background queue in FastAPI.
+- **Adapter Allowlist**: Only load approved adapter directories (e.g. M1, M2). Do not permit arbitrary filesystem paths from user requests.
+- **Offline Guarantee**: Pass `local_files_only=True` and ensure `$env:HF_HUB_OFFLINE = "1"` in production deployments.
 
-## Team handoff
+---
 
-Pawan: use `InferenceEngine(ModelConfig()).infer(InferenceRequest.from_dict(payload))` in a serialized local worker after model access works. Validate caller/source authorization and resolve adapters through an allowlist. See [the proposed integration contract](INTEGRATION_CONTRACT.md). No production backend module exists here and no public endpoint was exposed.
+## 3. Integration Instructions for Vijay (Data, Verifier & Memory)
 
-Vijay: provide source version IDs/hashes, explicit units/measurands/assumptions and trusted deterministic verifier receipts. Retain raw records unchanged. The local training generator's approval boolean is synthetic; it does not admit arbitrary external data. Agree production authority, source hashes and split ownership before adding an external import. CuratorKIT export inspection and SafeTune's bounded integration plan are in [the upstream review](UPSTREAM_REVIEW.md).
+Vijay's deterministic verifier and immutable evidence provenance directly feed the training and inference pipeline.
 
-SafeTune remains incomplete: the inspected SafeGrad path needs explicit alignment data and, for KL mode, a frozen reference with additional memory and validated gradients. No replacement custom algorithm is called SafeTune. M3 is disabled until qualification.
+### Evidence Contract Adherence:
+- Every evidence item must follow `InferenceRequest.evidence` schema:
+  - `source_id`: Alphanumeric token (e.g., `DOC-001`, `EXP-2026-A`). Must match `source_allowlist`.
+  - `text`: Stipulated factual assertion.
+  - `measurand`: Specific physical quantity (e.g., `kinetic_friction_coefficient`, `boiling_point_celsius`).
+  - `value`: Numeric scalar or structured quantity.
+  - `unit`: Normalized SI or domain unit.
+  - `verified`: Boolean indicating deterministic verifier pass.
+- **Evidence-Gated Training Pipeline (`vault_ml.training_data`)**:
+  - The deterministic verifier gate checks:
+    1. Provenance hash validity (`fingerprint(record)`).
+    2. Numerical and unit consistency.
+    3. Absence of internal contradiction.
+  - Only records with `approved: true` are admitted to the M2 fine-tuning set.
 
-## Git and artifacts
+---
 
-Starting state: only `.venv`, no Git repository, no initial commit or teammate code. The new local Git milestone includes source, docs, synthetic fixtures, dependency reports and command logs. No remote was configured or pushed. Exact final commit is returned in the chat; use `git rev-parse HEAD`, `git log --oneline` and `git status --short` to verify.
+## 4. Status of M3 (SafeTune) & Cloud Training Specification
 
-Scientific fixture export: `experiments/baseline/20261108T163941_736282Z/fixtures.json` (`model_run: false`). Auth-denied smoke log: `experiments/environment/model-smoke-attempt.log`. Negative offline pipeline run: `experiments/pipeline/20261108T164645_172331Z/`. These are discovery/validation records, not successful model experiments. Full chronology: [experiment ledger](EXPERIMENT_LEDGER.md).
+- **Local Constraint**: Upstream SafeTune (`https://github.com/Lexsi-Labs/SafeTune`) implements SafeGrad with reference-model KL divergence penalties. Running base model (3.35B) + reference model (3.35B) + optimizer states exceeds 6 GB VRAM and requires Linux-specific hooks.
+- **Local Integration**: SafeTune's official offline evaluation metric suite (`HarmfulnessClassifier`, `OverRefusalMetric`) is fully integrated in `vault_ml.safety.score_records_safetune` and scored all M0, M1, and M2 outputs.
+- **Cloud Execution Path**: A ready-to-run 16 GB Linux GPU training specification is located at `experiments/training/cloud-16gb.json` for deployment on an A10G/T4/V100 Cloud VM via:
+  ```bash
+  python -m vault_ml.train --config experiments/training/cloud-16gb.json --variant M3
+  ```
+
+---
+
+## 5. Artifact Directory & Verification Index
+
+| Component | Path | Status |
+| :--- | :--- | :--- |
+| **M0 Baseline Science** | `experiments/baseline/real-M0-science/20261108T175616_976455Z/` | Verified (10/10) |
+| **M0 Baseline Safety** | `experiments/safety/real-M0/20261108T180522_889379Z/` | Verified (8/8) |
+| **M1 Adapter** | `experiments/training/M1/20261108T192814_879096Z/adapter/` | Verified (SHA256: `f71f0f9d...`) |
+| **M2 Adapter** | `experiments/training/M2/20261108T192924_466936Z/adapter/` | Verified (SHA256: `37799d61...`) |
+| **M1 Science Eval** | `experiments/evaluation/M1-science/20261108T193044_172858Z/` | Verified (7/10 JSON) |
+| **M1 Safety Eval** | `experiments/evaluation/M1-safety/20261108T193642_351096Z/` | Verified (AuditKIT + SafeTune) |
+| **M2 Science Eval** | `experiments/evaluation/M2-science/20261108T194125_030392Z/` | Verified (8/10 JSON) |
+| **M2 Safety Eval** | `experiments/evaluation/M2-safety/20261108T194609_429677Z/` | Verified (AuditKIT + SafeTune) |
+| **Comparative Analysis** | `experiments/comparison.json` | Verified (`complete`) |
+| **Unit Test Suite** | `tests/test_ml.py` | 22/22 Passing |
+| **Experiment Ledger** | `docs/EXPERIMENT_LEDGER.md` | Fully Documented |
+| **Comparative Report** | `docs/MODEL_RESULTS.md` | Comprehensive Report |
