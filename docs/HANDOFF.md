@@ -2,7 +2,7 @@
 
 ## Current result
 
-Implemented the native Windows workstream and verified the parts that do not require gated Tiny Aya files. **Official-model execution remains blocked by absent Hugging Face authentication.** The user has authorized downloads and reports approved model access, but the local Hub credential check is false and the official loader returned access denied. The user cannot authenticate yet. Browser access to the Tiny Aya chat demo does not authenticate the Python Hub client.
+Implemented the native Windows workstream and verified the parts that do not require gated Tiny Aya files. **Official-model execution remains blocked by a credential/session mismatch.** On resumption from `9f0ba2e8eb01638393056ea5a2960952160fb68a`, the user reports completed authentication, accepted terms and successful `whoami` in their terminal. The agent's exact project `hf.exe auth whoami` still reports not logged in; no local credential is visible and the pinned config download returned `GatedRepoError` outside the sandbox. Non-secret credential-path output from the successful terminal has been requested. No conclusion about the user's account approval is inferred from the missing local credential.
 
 No authentic M0 response, Tiny Aya training run, Tiny Aya adapter, completed M1/M2/M3 model or real-model safety result exists. No scientific reliability improvement or safety-preservation conclusion is claimed.
 
@@ -28,7 +28,7 @@ Native NF4 primitive diagnostic: finite loss `0.24945829808712006`, forward/back
 
 `pip check` passes. Torch remains 2.11.0+cu128, CUDA 12.8 available, RTX 4050 Laptop 6 GB, driver 621.01, Python 3.12.10. Main additions: Transformers 5.21.1, Accelerate 1.15.0, Hub 2.4.0, PEFT 0.21.2, BitsAndBytes 0.50.2, Safetensors 0.8.0, psutil 7.2.2, AuditKIT 1.1.6 at `9da5838e61ef54d560a37605ddbcb19aceded9b3`. Complete exact versions: `requirements-ml-lock.txt`; original installed report: `experiments/environment/final-freeze.txt`.
 
-Official base revision: `af89d219b53ed9b13b8a4645f9c8028973510324`. Weights/tokenizer/config files have not been downloaded. The public metadata and model card were inspected; the public default chat template was format-tested. Cache and all weights/secrets/venv are excluded from Git.
+Official base revision: `af89d219b53ed9b13b8a4645f9c8028973510324`. Weights/tokenizer/config files have not been downloaded. The public metadata and model card were inspected; the public default chat template was format-tested. Cache and all weights/secrets/venv are excluded from Git. New resumption access failures are recorded in `experiments/access/20261108T165643_626514Z/access.json` and `experiments/access/20261108T165708_712540Z/access.json`; both report absent local credentials and gated-access denial, not model inference results.
 
 ## Continue after local authentication
 

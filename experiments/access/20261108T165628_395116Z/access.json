@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-11-08T16:56:28.395116+00:00",
+  "model_id": "CohereLabs/tiny-aya-global",
+  "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+  "local_credential_present": false,
+  "status": "failed",
+  "error_type": "LocalEntryNotFoundError",
+  "error": "Pinned model files are not cached. Authenticate and download them with network access first."
+}

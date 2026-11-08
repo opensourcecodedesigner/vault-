@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-11-08T16:56:43.626514+00:00",
+  "model_id": "CohereLabs/tiny-aya-global",
+  "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+  "local_credential_present": false,
+  "status": "failed",
+  "error_type": "GatedRepoError",
+  "error": "Tiny Aya access denied. Accept the model terms at https://huggingface.co/CohereLabs/tiny-aya-global, then run .\\.venv\\Scripts\\hf.exe auth login locally. Never put tokens in artifacts."
+}

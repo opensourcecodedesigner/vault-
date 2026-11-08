@@ -46,3 +46,14 @@ Working local checks: dependency imports, CUDA/NF4 primitive, contracts, officia
 Blocked: official config/tokenizer/weight download, authentic Tiny Aya M0 responses, full-size training feasibility, real Tiny Aya adapters, completed M1/M2 experiments and comparative safety results. No model accuracy, loss trajectory, adapter ID or safety-preservation metric exists for Tiny Aya. Cloud configuration is executable code/configuration only and has not run.
 
 The Git milestone covers this implemented and tested workstream. Starting commit was absent; obtain the final exact commit with `git rev-parse HEAD` (also reported in the chat handoff). No remote push is performed.
+
+## Authenticated-run resumption — 2026-11-08, 22:26–22:28 IST
+
+- Requested starting commit `9f0ba2e8eb01638393056ea5a2960952160fb68a` matched HEAD; working tree was clean before modifications. Read handoff/ledger and reused the existing infrastructure unchanged.
+- Torch remains `2.11.0+cu128`; CUDA available; initial free VRAM `5,326,766,080` bytes of `6,438,780,928` total.
+- User reports completing Hub authentication and accepting terms. The process credential-presence check returned false. Checked only credential presence/locations, never token contents or values.
+- First normal-sandbox pinned-config access encountered DNS denial: `experiments/access/20261108T165628_395116Z/access.json`. This is a sandbox network failure, not evidence about account approval.
+- Retried outside the network-restricted sandbox: `experiments/access/20261108T165643_626514Z/access.json` records `GatedRepoError` and absent local credential.
+- After the user reported successful `whoami`, repeated the pinned-config check: `experiments/access/20261108T165708_712540Z/access.json` again records absent local credential and `GatedRepoError`.
+- Direct invocation of the exact project `hf.exe auth whoami` also reports not logged in. Default `HF_HOME` is `C:\Users\cosmic\.cache\huggingface`; neither `token` nor `stored_tokens` exists there, and no process `HF_TOKEN`, legacy token file, user-level token environment value or project-cache token was found.
+- Asked for non-secret credential-path/environment-presence output from the user's successful terminal to resolve this session mismatch. No access-control bypass, alternate model, baseline run or adapter result was attempted or claimed.
