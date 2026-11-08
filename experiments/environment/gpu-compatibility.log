@@ -1,0 +1,10 @@
+test_random_cohere2_peft_backward_save_reload (test_gpu_integration.GPUCompatibilityTests.test_random_cohere2_peft_backward_save_reload) ... W1108 22:09:16.489000 30040 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W1108 22:09:18.365000 30040 .venv\Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+D:\VAULT\.venv\Lib\site-packages\torch\jit\_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 14.330s
+
+OK

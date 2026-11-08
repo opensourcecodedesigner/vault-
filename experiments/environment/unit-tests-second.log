@@ -1,0 +1,66 @@
+test_random_cohere2_peft_backward_save_reload (test_gpu_integration.GPUCompatibilityTests.test_random_cohere2_peft_backward_save_reload) ... skipped 'set VAULT_RUN_GPU_TESTS=1 to run GPU compatibility tests'
+test_pinned_official_model (test_ml.ConfigTests.test_pinned_official_model) ... ok
+test_reject_unsafe_memory_or_mutable_revision (test_ml.ConfigTests.test_reject_unsafe_memory_or_mutable_revision) ... ok
+test_training_validation (test_ml.ConfigTests.test_training_validation) ... ok
+test_boundary_validation (test_ml.ContractTests.test_boundary_validation) ... ok
+test_missing_evidence (test_ml.ContractTests.test_missing_evidence) ... ok
+test_prompt_injection_stays_in_data (test_ml.ContractTests.test_prompt_injection_stays_in_data) ... ok
+test_structured_roundtrip_and_prompt (test_ml.ContractTests.test_structured_roundtrip_and_prompt) ... ok
+test_unknown_citations_removed (test_ml.ContractTests.test_unknown_citations_removed) ... ok
+test_auditkit_real_api_with_unit_test_outputs (test_ml.EvaluationTests.test_auditkit_real_api_with_unit_test_outputs) ... ERROR
+test_deterministic_and_distinct_fixtures (test_ml.EvaluationTests.test_deterministic_and_distinct_fixtures) ... ok
+test_immutable_artifact (test_ml.EvaluationTests.test_immutable_artifact) ... ok
+test_measurands_are_not_interchangeable (test_ml.EvaluationTests.test_measurands_are_not_interchangeable) ... ok
+test_no_heldout_training_overlap (test_ml.EvaluationTests.test_no_heldout_training_overlap) ... ok
+test_scores_and_malformed_outputs (test_ml.EvaluationTests.test_scores_and_malformed_outputs) ... ok
+test_cuda_detection_failure (test_ml.LoaderTests.test_cuda_detection_failure) ... ok
+test_error_does_not_expose_credentials (test_ml.LoaderTests.test_error_does_not_expose_credentials) ... ERROR
+test_execution_hook_overrides_weight_storage (test_ml.LoaderTests.test_execution_hook_overrides_weight_storage) ... ok
+
+======================================================================
+ERROR: test_auditkit_real_api_with_unit_test_outputs (test_ml.EvaluationTests.test_auditkit_real_api_with_unit_test_outputs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\cosmic\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\cosmic\\.cache\\auditkit\\runs'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\VAULT\tests\test_ml.py", line 129, in test_auditkit_real_api_with_unit_test_outputs
+    result = score_records(records)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VAULT\vault_ml\safety.py", line 30, in score_records
+    result = ak.evaluate(samples, model="precomputed", scorers=[refusal_lexical_marker])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VAULT\.venv\Lib\site-packages\auditkit\api.py", line 273, in evaluate
+    result = Runner().run(spec, verbose=verbose)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VAULT\.venv\Lib\site-packages\auditkit\runner.py", line 586, in run
+    cache = DiskCache()
+            ^^^^^^^^^^^
+  File "D:\VAULT\.venv\Lib\site-packages\auditkit\cache.py", line 22, in __init__
+    self._dir.mkdir(parents=True, exist_ok=True)
+  File "C:\Users\cosmic\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1315, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  File "C:\Users\cosmic\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\cosmic\\.cache\\auditkit'
+
+======================================================================
+ERROR: test_error_does_not_expose_credentials (test_ml.LoaderTests.test_error_does_not_expose_credentials)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\VAULT\tests\test_ml.py", line 138, in test_error_does_not_expose_credentials
+    message = classify_load_error(GatedRepoError("secret should not be copied", response=None))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VAULT\.venv\Lib\site-packages\huggingface_hub\errors.py", line 128, in __init__
+    response.headers.get("x-request-id")
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'headers'
+
+----------------------------------------------------------------------
+Ran 18 tests in 7.371s
+
+FAILED (errors=2, skipped=1)

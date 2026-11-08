@@ -1,0 +1,13 @@
+{
+  "label": "diagnostics",
+  "command": [
+    "D:\\VAULT\\.venv\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "vault_ml.diagnostics",
+    "--output",
+    "experiments\\pipeline\\20261108T164645_172331Z\\diagnostics.json"
+  ],
+  "exit_code": 0,
+  "completed_at": "2026-11-08T16:47:01.615993+00:00"
+}

@@ -1,0 +1,117 @@
+Processing .\.cache\research\AuditKIT
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting transformers==5.21.1
+  Downloading transformers-5.21.1-py3-none-any.whl.metadata (31 kB)
+Collecting accelerate<2,>=1
+  Using cached accelerate-1.15.0-py3-none-any.whl.metadata (19 kB)
+Collecting peft<1
+  Downloading peft-0.21.2-py3-none-any.whl.metadata (15 kB)
+Collecting bitsandbytes==0.50.2
+  Downloading bitsandbytes-0.50.2-py3-none-win_amd64.whl.metadata (11 kB)
+Collecting psutil
+  Using cached psutil-7.2.2-cp37-abi3-win_amd64.whl.metadata (22 kB)
+Collecting safetensors
+  Using cached safetensors-0.8.0-cp310-abi3-win_amd64.whl.metadata (4.2 kB)
+Collecting huggingface-hub<3.0,>=1.31.0 (from transformers==5.21.1)
+  Downloading huggingface_hub-2.4.0-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: numpy>=1.17 in .\.venv\Lib\site-packages (from transformers==5.21.1) (2.5.4)
+Collecting packaging>=20.0 (from transformers==5.21.1)
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyyaml>=5.1 (from transformers==5.21.1)
+  Using cached pyyaml-6.0.3-cp312-cp312-win_amd64.whl.metadata (2.4 kB)
+Collecting regex>=2025.10.22 (from transformers==5.21.1)
+  Downloading regex-2026.11.7-cp312-cp312-win_amd64.whl.metadata (41 kB)
+Collecting tokenizers<0.24.0,>=0.23.1 (from transformers==5.21.1)
+  Downloading tokenizers-0.23.3-cp310-abi3-win_amd64.whl.metadata (10 kB)
+Collecting typer (from transformers==5.21.1)
+  Downloading typer-0.28.0-py3-none-any.whl.metadata (16 kB)
+Collecting tqdm>=4.60 (from transformers==5.21.1)
+  Using cached tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Requirement already satisfied: torch<3,>=2.4 in .\.venv\Lib\site-packages (from bitsandbytes==0.50.2) (2.11.0+cu128)
+Collecting click<9.0.0,>=8.4.2 (from huggingface-hub<3.0,>=1.31.0->transformers==5.21.1)
+  Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+Requirement already satisfied: filelock>=3.10.0 in .\.venv\Lib\site-packages (from huggingface-hub<3.0,>=1.31.0->transformers==5.21.1) (4.2.4)
+Requirement already satisfied: fsspec>=2023.5.0 in .\.venv\Lib\site-packages (from huggingface-hub<3.0,>=1.31.0->transformers==5.21.1) (2026.9.0)
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub<3.0,>=1.31.0->transformers==5.21.1)
+  Downloading hf_xet-1.8.0-cp38-abi3-win_amd64.whl.metadata (4.9 kB)
+Collecting httpx2<3,>=2.0.0 (from huggingface-hub<3.0,>=1.31.0->transformers==5.21.1)
+  Downloading httpx2-2.16.0-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: typing-extensions>=4.1.0 in .\.venv\Lib\site-packages (from huggingface-hub<3.0,>=1.31.0->transformers==5.21.1) (4.16.0)
+Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers==5.21.1)
+  Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore2==2.16.0 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers==5.21.1)
+  Downloading httpcore2-2.16.0-py3-none-any.whl.metadata (27 kB)
+Collecting idna>=3.18 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers==5.21.1)
+  Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers==5.21.1)
+  Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting h11>=0.16 (from httpcore2==2.16.0->httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers==5.21.1)
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Requirement already satisfied: setuptools<82 in .\.venv\Lib\site-packages (from torch<3,>=2.4->bitsandbytes==0.50.2) (78.1.0)
+Requirement already satisfied: sympy>=1.13.3 in .\.venv\Lib\site-packages (from torch<3,>=2.4->bitsandbytes==0.50.2) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in .\.venv\Lib\site-packages (from torch<3,>=2.4->bitsandbytes==0.50.2) (3.7)
+Requirement already satisfied: jinja2 in .\.venv\Lib\site-packages (from torch<3,>=2.4->bitsandbytes==0.50.2) (3.1.6)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in .\.venv\Lib\site-packages (from sympy>=1.13.3->torch<3,>=2.4->bitsandbytes==0.50.2) (1.3.0)
+Collecting colorama (from tqdm>=4.60->transformers==5.21.1)
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Requirement already satisfied: MarkupSafe>=2.0 in .\.venv\Lib\site-packages (from jinja2->torch<3,>=2.4->bitsandbytes==0.50.2) (3.0.3)
+Collecting shellingham>=1.3.0 (from typer->transformers==5.21.1)
+  Using cached shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer->transformers==5.21.1)
+  Using cached rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer->transformers==5.21.1)
+  Using cached annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer->transformers==5.21.1)
+  Using cached markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer->transformers==5.21.1)
+  Using cached pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers==5.21.1)
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading transformers-5.21.1-py3-none-any.whl (13.0 MB)
+   ---------------------------------------- 13.0/13.0 MB 2.2 MB/s  0:00:05
+Downloading bitsandbytes-0.50.2-py3-none-win_amd64.whl (39.1 MB)
+   ---------------------------------------- 39.1/39.1 MB 2.1 MB/s  0:00:18
+Using cached accelerate-1.15.0-py3-none-any.whl (394 kB)
+Downloading peft-0.21.2-py3-none-any.whl (835 kB)
+   ---------------------------------------- 835.4/835.4 kB 2.6 MB/s  0:00:00
+Downloading huggingface_hub-2.4.0-py3-none-any.whl (857 kB)
+   ---------------------------------------- 857.0/857.0 kB 2.5 MB/s  0:00:00
+Downloading click-8.5.1-py3-none-any.whl (126 kB)
+Downloading hf_xet-1.8.0-cp38-abi3-win_amd64.whl (3.9 MB)
+   ---------------------------------------- 3.9/3.9 MB 2.0 MB/s  0:00:01
+Downloading httpx2-2.16.0-py3-none-any.whl (97 kB)
+Downloading httpcore2-2.16.0-py3-none-any.whl (85 kB)
+Downloading tokenizers-0.23.3-cp310-abi3-win_amd64.whl (2.9 MB)
+   ---------------------------------------- 2.9/2.9 MB 3.0 MB/s  0:00:00
+Using cached psutil-7.2.2-cp37-abi3-win_amd64.whl (137 kB)
+Using cached safetensors-0.8.0-cp310-abi3-win_amd64.whl (355 kB)
+Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Using cached idna-3.20-py3-none-any.whl (69 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Using cached pyyaml-6.0.3-cp312-cp312-win_amd64.whl (154 kB)
+Downloading regex-2026.11.7-cp312-cp312-win_amd64.whl (280 kB)
+Using cached tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading typer-0.28.0-py3-none-any.whl (123 kB)
+Using cached annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Using cached rich-15.0.0-py3-none-any.whl (310 kB)
+Using cached pygments-2.21.0-py3-none-any.whl (1.3 MB)
+Using cached markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Using cached shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Building wheels for collected packages: auditkit
+  Building wheel for auditkit (pyproject.toml): started
+  Building wheel for auditkit (pyproject.toml): finished with status 'done'
+  Created wheel for auditkit: filename=auditkit-1.1.6-py3-none-any.whl size=506093 sha256=c82167359fd9bc74d616c39c6263525ea1a46b483d3715883ead5f61be29c73f
+  Stored in directory: C:\Users\cosmic\AppData\Local\Temp\pip-ephem-wheel-cache-20eiy6vh\wheels\a1\77\cc\750e0bca650425770a4d7a4fce011e38c1296fb5aad43058fc
+Successfully built auditkit
+Installing collected packages: truststore, shellingham, safetensors, regex, pyyaml, pygments, psutil, packaging, mdurl, idna, hf-xet, h11, colorama, click, auditkit, annotated-doc, tqdm, markdown-it-py, httpcore2, anyio, rich, httpx2, bitsandbytes, typer, huggingface-hub, tokenizers, accelerate, transformers, peft
+
+Successfully installed accelerate-1.15.0 annotated-doc-0.0.5 anyio-4.16.0 auditkit-1.1.6 bitsandbytes-0.50.2 click-8.5.1 colorama-0.4.6 h11-0.16.0 hf-xet-1.8.0 httpcore2-2.16.0 httpx2-2.16.0 huggingface-hub-2.4.0 idna-3.20 markdown-it-py-4.2.0 mdurl-0.1.2 packaging-26.3 peft-0.21.2 psutil-7.2.2 pygments-2.21.0 pyyaml-6.0.3 regex-2026.11.7 rich-15.0.0 safetensors-0.8.0 shellingham-1.5.4 tokenizers-0.23.3 tqdm-4.70.1 transformers-5.21.1 truststore-0.10.5 typer-0.28.0

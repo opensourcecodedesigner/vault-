@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-11-08T16:33:42.384910+00:00",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "packages": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "torchaudio": "2.11.0+cu128",
+    "transformers": "5.21.1",
+    "accelerate": "1.15.0",
+    "huggingface_hub": "2.4.0",
+    "safetensors": "0.8.0",
+    "peft": "0.21.2",
+    "bitsandbytes": "0.50.2",
+    "psutil": "7.2.2",
+    "auditkit": "1.1.6"
+  },
+  "cuda": true,
+  "torch_cuda": "12.8",
+  "ram_bytes": 25439199232,
+  "available_ram_bytes": 9762758656,
+  "disk_free_bytes": 43436285952,
+  "checks": {
+    "nf4_forward_backward": {
+      "passed": true,
+      "loss": 0.24945829808712006
+    }
+  },
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "gpu_memory_bytes": 6438780928,
+  "compute_capability": [
+    8,
+    9
+  ],
+  "pip_check": {
+    "exit_code": 0,
+    "output": "No broken requirements found.\n"
+  },
+  "passed": true
+}

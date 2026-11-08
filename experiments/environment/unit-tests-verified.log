@@ -1,0 +1,32 @@
+test_random_cohere2_nf4_qlora_backward_reload (test_gpu_integration.GPUCompatibilityTests.test_random_cohere2_nf4_qlora_backward_reload) ... skipped 'set VAULT_RUN_GPU_TESTS=1 to run GPU compatibility tests'
+test_random_cohere2_peft_backward_save_reload (test_gpu_integration.GPUCompatibilityTests.test_random_cohere2_peft_backward_save_reload) ... skipped 'set VAULT_RUN_GPU_TESTS=1 to run GPU compatibility tests'
+test_pinned_official_model (test_ml.ConfigTests.test_pinned_official_model) ... ok
+test_reject_unsafe_memory_or_mutable_revision (test_ml.ConfigTests.test_reject_unsafe_memory_or_mutable_revision) ... ok
+test_training_validation (test_ml.ConfigTests.test_training_validation) ... ok
+test_boundary_validation (test_ml.ContractTests.test_boundary_validation) ... ok
+test_missing_evidence (test_ml.ContractTests.test_missing_evidence) ... ok
+test_official_public_chat_template (test_ml.ContractTests.test_official_public_chat_template) ... ok
+test_prompt_injection_stays_in_data (test_ml.ContractTests.test_prompt_injection_stays_in_data) ... ok
+test_structured_roundtrip_and_prompt (test_ml.ContractTests.test_structured_roundtrip_and_prompt) ... ok
+test_unknown_citations_removed (test_ml.ContractTests.test_unknown_citations_removed) ... ok
+test_auditkit_real_api_with_unit_test_outputs (test_ml.EvaluationTests.test_auditkit_real_api_with_unit_test_outputs) ... ok
+test_comparison_rejects_budget_or_suite_drift (test_ml.EvaluationTests.test_comparison_rejects_budget_or_suite_drift) ... ok
+test_deterministic_and_distinct_fixtures (test_ml.EvaluationTests.test_deterministic_and_distinct_fixtures) ... ok
+test_immutable_artifact (test_ml.EvaluationTests.test_immutable_artifact) ... ok
+test_measurands_are_not_interchangeable (test_ml.EvaluationTests.test_measurands_are_not_interchangeable) ... ok
+test_no_heldout_training_overlap (test_ml.EvaluationTests.test_no_heldout_training_overlap) ... ok
+test_scores_and_malformed_outputs (test_ml.EvaluationTests.test_scores_and_malformed_outputs) ... ok
+test_training_packing_masks_prompt_and_matches_budget (test_ml.EvaluationTests.test_training_packing_masks_prompt_and_matches_budget) ... ok
+test_cuda_detection_failure (test_ml.LoaderTests.test_cuda_detection_failure) ... ok
+test_error_does_not_expose_credentials (test_ml.LoaderTests.test_error_does_not_expose_credentials) ... ok
+test_execution_hook_overrides_weight_storage (test_ml.LoaderTests.test_execution_hook_overrides_weight_storage) ... ok
+test_greedy_generation_slices_completion_and_serializes (test_ml.LoaderTests.test_greedy_generation_slices_completion_and_serializes) ... W1108 22:18:28.322000 27260 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W1108 22:18:29.631000 27260 .venv\Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+D:\VAULT\.venv\Lib\site-packages\torch\jit\_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 9.974s
+
+OK (skipped=2)

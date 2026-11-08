@@ -1,0 +1,3 @@
+Starting diagnostics; log: experiments\pipeline\20261108T164645_172331Z\diagnostics.log
+Starting M0-inference; log: experiments\pipeline\20261108T164645_172331Z\M0-inference.log
+M0-inference failed with exit 1; see local log.

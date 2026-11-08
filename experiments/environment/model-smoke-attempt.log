@@ -1,0 +1,1 @@
+{"error": "Tiny Aya access denied. Accept the model terms at https://huggingface.co/CohereLabs/tiny-aya-global, then run .\\.venv\\Scripts\\hf.exe auth login locally. Never put tokens in artifacts."}
