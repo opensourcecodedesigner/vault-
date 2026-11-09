@@ -243,5 +243,48 @@ class EvidenceGateTests(unittest.TestCase):
         self.assertEqual(benchmark["20pct"]["f1_score"], 1.0)
 
 
+class ControlledDatasetPipelineTests(unittest.TestCase):
+    """Test scenario-family isolation and controlled dataset construction (Phase 3)."""
+
+    def test_scenario_family_isolation_strictly_disjoint(self):
+        """Train, dev, and heldout evaluation scenario families have zero overlap."""
+        from vault_ml.dataset_generator import (
+            DEV_SCENARIO_FAMILIES,
+            HELDOUT_SCENARIO_FAMILIES,
+            TRAINING_SCENARIO_FAMILIES,
+            assert_scenario_family_isolation,
+        )
+        assert_scenario_family_isolation()
+        self.assertTrue(TRAINING_SCENARIO_FAMILIES.isdisjoint(HELDOUT_SCENARIO_FAMILIES))
+        self.assertTrue(DEV_SCENARIO_FAMILIES.isdisjoint(HELDOUT_SCENARIO_FAMILIES))
+        self.assertTrue(TRAINING_SCENARIO_FAMILIES.isdisjoint(DEV_SCENARIO_FAMILIES))
+
+    def test_controlled_datasets_construction_and_sizes(self):
+        """Pipeline builds M1, M2, M2_control, M2_safety, and smoke datasets."""
+        from vault_ml.dataset_generator import generate_controlled_datasets
+        with tempfile.TemporaryDirectory() as tmpdir:
+            datasets = generate_controlled_datasets(output_root=Path(tmpdir))
+            self.assertIn("M1", datasets)
+            self.assertIn("M2", datasets)
+            self.assertIn("M2_control", datasets)
+            self.assertIn("M2_safety", datasets)
+            self.assertIn("smoke", datasets)
+
+            # M1 is unfiltered (16 records)
+            self.assertEqual(len(datasets["M1"]), 16)
+            # M2 is filtered by evidence gate (12 records)
+            self.assertEqual(len(datasets["M2"]), 12)
+            self.assertTrue(all(x["verifier_approved"] for x in datasets["M2"]))
+            # M2_control has the EXACT SAME count as M2 (12 records)
+            self.assertEqual(len(datasets["M2_control"]), len(datasets["M2"]))
+            # M2_safety has M2 plus benign safety supervision
+            self.assertEqual(len(datasets["M2_safety"]), len(datasets["M2"]) + 2)
+
+            # Verify manifest was written
+            manifest_files = list(Path(tmpdir).glob("*/manifest.json")) + list(Path(tmpdir).glob("manifest.json"))
+            self.assertTrue(len(manifest_files) > 0)
+
+
 if __name__ == "__main__":
     unittest.main()
+

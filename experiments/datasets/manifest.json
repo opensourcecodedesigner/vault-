@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-11-09T12:46:35.584672+00:00",
+  "pipeline_version": "vault-dataset-pipeline-v1",
+  "teacher_mode": "fixture",
+  "teacher_model_id": "CohereLabs/aya-expanse-8b",
+  "teacher_revision": "5062468bf9bc0c6035fd64e06274333ec127d980",
+  "total_candidates": 16,
+  "gate_accepted": 12,
+  "gate_rejected": 3,
+  "gate_quarantined": 1,
+  "datasets": {
+    "M1": {
+      "count": 16,
+      "hash": "4ac9046d40c276101d584a7736b830ece6ca5a82d6b415654fea398c3ab9f0ca"
+    },
+    "M2": {
+      "count": 12,
+      "hash": "e36663b222addfd5e8078cd8519c830d7d1a0c849c62e07b3812a38fa49b6cf6"
+    },
+    "M2_control": {
+      "count": 12,
+      "hash": "60d08458fdc1e5bd4289c0ed99065ff7edaf3796b09f6e2b38ed12923a2d152c"
+    },
+    "M2_safety": {
+      "count": 14,
+      "hash": "ba964771b713ff31d1716d6868c1b747231e0592a9dd99698f4b33645ccfed97"
+    },
+    "smoke": {
+      "count": 2,
+      "hash": "fa93b9ba9d7fd14944083cb93e3b7442d3426b58bcd528dabf679649333e6688"
+    }
+  }
+}

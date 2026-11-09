@@ -1,0 +1,65 @@
+{
+  "name": "smoke",
+  "count": 2,
+  "hash": "fa93b9ba9d7fd14944083cb93e3b7442d3426b58bcd528dabf679649333e6688",
+  "examples": [
+    {
+      "id": "TCH-T-01",
+      "request": {
+        "request_id": "TCH-T-01",
+        "question": "Based on the verification of CAL-INC-101, what is the confirmed incubator chamber temperature celsius under SOP-CAL-TEMP-v3? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-01",
+            "claim": "RTD probe certified 37.0 C chamber temperature.",
+            "verification_status": "verified",
+            "verified_value": "37.0 Celsius"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-01"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"incubator_chamber_temperature_celsius\", \"correct_value\": 37.0, \"unit\": \"Celsius\", \"explanation\": \"According to verified document [DOC-T-01], the incubator chamber temperature celsius was measured at 37.0 Celsius. The deterministic verification passed against SOP SOP-CAL-TEMP-v3.\", \"citations\": [\"DOC-T-01\"]}",
+      "scenario_family": "temperature_calibration_chamber",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "33f529cd3dfcc180cd26bb7cef8c2557cf9bbe5b7528be45d97ce6a4ded32911",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-02",
+      "request": {
+        "request_id": "TCH-T-02",
+        "question": "Based on the verification of CAL-INC-102, what is the confirmed incubator chamber temperature celsius under SOP-CAL-TEMP-v3? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-02",
+            "claim": "RTD probe logged 37.2 C, within +/-0.5 C tolerance.",
+            "verification_status": "verified",
+            "verified_value": "37.2 Celsius"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-02"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"incubator_chamber_temperature_celsius\", \"correct_value\": 37.2, \"unit\": \"Celsius\", \"explanation\": \"According to verified document [DOC-T-02], the incubator chamber temperature celsius was measured at 37.2 Celsius. The deterministic verification passed against SOP SOP-CAL-TEMP-v3.\", \"citations\": [\"DOC-T-02\"]}",
+      "scenario_family": "temperature_calibration_chamber",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "1c8ab9f84b59458ff5421f22e44038f734d53045dceeab5934eac75d1e6381c0",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    }
+  ]
+}

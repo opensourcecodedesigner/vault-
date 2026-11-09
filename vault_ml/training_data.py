@@ -26,7 +26,13 @@ def training_examples():
     return examples
 
 
-def selected_examples(variant):
+def selected_examples(variant, dataset="legacy"):
+    if dataset == "qc" or variant in {"M2_control", "M2-control", "M2_safety", "M2-safety", "qc_M1", "qc_M2"}:
+        from .dataset_generator import generate_controlled_datasets
+        datasets = generate_controlled_datasets()
+        norm = variant.replace("-", "_").replace("qc_", "")
+        return datasets.get(norm, datasets.get(variant, datasets["M2"]))
+
     examples = training_examples()
     if variant == "M2":
         examples = [x for x in examples if x["verifier_approved"]]

@@ -152,7 +152,7 @@ def train(model_config, training_config, root):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", help="JSON with model and training fields (also usable on Linux GPU).")
-    parser.add_argument("--variant", choices=["smoke", "M1", "M2"], default="smoke")
+    parser.add_argument("--variant", choices=["smoke", "M1", "M2", "M2-control", "M2_control", "M2-safety", "M2_safety"], default="smoke")
     parser.add_argument("--steps", type=int, default=2)
     parser.add_argument("--sequence-length", type=int, default=256)
     parser.add_argument("--output-root", default="experiments/training")

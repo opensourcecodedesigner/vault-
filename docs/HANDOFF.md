@@ -20,7 +20,12 @@ The VAULT model engineering, fine-tuning, and safety evaluation workstream is **
    - Verified SafeTune keyword metrics and AuditKIT scores across all model outputs.
 4. **Comparative Analysis & Regression Suite**:
    - `vault_ml.comparison.compare_completed` executed: `experiments/comparison.json` generated with `status: complete`.
-   - **22/22 unit tests passing cleanly** (`python -m unittest tests.test_ml -v`).
+   - **41/41 unit tests passing cleanly** (`python -m unittest tests.test_ml tests.test_teacher_and_gate -v`).
+5. **Teacher Interface, Six-Check Gate & Controlled Datasets (Phases 1–3)**:
+   - Implemented modular `TeacherClient` (`vault_ml/teacher.py`) with Aya Expanse 8B metadata, fixture generation, and hardware guards.
+   - Implemented `EvidenceGate` (`vault_ml/evidence_gate.py`) evaluating sources, spans, factual claims, math/units, contradictions, and SOP versions with tri-state decisions.
+   - Enforced scenario-family isolation (`vault_ml/dataset_generator.py`) and generated controlled datasets (`M1`, `M2`, `M2_control`, `M2_safety`).
+   - Trained `M2_control` and `M2_safety` QLoRA adapters on RTX 4050 GPU under strictly matched 5,120-token budgets.
 
 ---
 

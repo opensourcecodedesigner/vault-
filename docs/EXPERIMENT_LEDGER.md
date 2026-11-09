@@ -154,3 +154,28 @@ The Git milestone covers this implemented and tested workstream. Starting commit
   - Controlled label corruption benchmark across 0%, 5%, 10%, 20% tiers achieved 100% recall and 100% precision in detecting injected corruptions on the benign QC corpus.
   - Verified that input candidate data is never mutated during gate evaluation.
 - **Combined Test Suite**: Ran 39/39 unit tests across `tests.test_ml` and `tests.test_teacher_and_gate` in 15.658s (**100% pass rate**).
+
+### 8. Phase 3: Controlled Data Pipeline & Matched-Budget QLoRA Training (2026-11-09)
+- **Scenario Family Isolation (`vault_ml.dataset_generator`)**:
+  - Implemented strict disjoint partition validator: `assert_scenario_family_isolation()`.
+  - Partitioning enforces zero overlap between training (6 families: `temperature_calibration_chamber`, `equipment_maintenance_centrifuge`, `buffer_molarity_potentiometry`, `chiller_thermal_loop_qc`, `spectrophotometer_photometric_accuracy`, `viscometer_calibration_standards`), dev (2 families: `analytical_balance_mass_standards`, `micropipette_gravimetric_calibration`), and held-out evaluation (6 families).
+- **Controlled Dataset Generation**:
+  - Generated and saved to `experiments/datasets/`:
+    - `M1.json`: 16 unfiltered candidates (16 rows).
+    - `M2.json`: 12 gate-accepted candidates (12 rows).
+    - `M2_control.json`: 12 matched-size ungated candidates including unverified/contradictory records (12 rows).
+    - `M2_safety.json`: 14 candidates (12 M2 records + 2 benign laboratory safety records).
+    - `manifest.json`: dataset manifest recording SHA-256 hashes, source counts, and rejection audit logs.
+- **Hardware-Constrained QLoRA Training on NVIDIA RTX 4050 (6 GB VRAM)**:
+  - **M2-control Run** (`experiments/training/M2_control/20261109T125213_167747Z/`):
+    - 20 steps, exactly matched 5,120 processed tokens, 1,379 supervised tokens, 25.38s execution time.
+    - Peak VRAM allocated: **4.68 GB**.
+    - Loss trajectory: initial loss 1.77, oscillated/diverged to 8.76 (grad norm 6.45) due to unverified contradictory inputs.
+    - Adapter verified: 144/144 parameter tensors updated; exact bitwise reload confirmed.
+  - **M2-safety Run** (`experiments/training/M2_safety/20261109T125301_750218Z/`):
+    - 20 steps, exactly matched 5,120 processed tokens, 27.80s execution time.
+    - Peak VRAM allocated: **4.68 GB**.
+    - Loss trajectory: initial loss 1.77, smoothly converged to 1.33 (grad norm 1.22).
+    - Adapter verified: 144/144 parameter tensors updated; exact bitwise reload confirmed.
+- **Full Test Suite Verification**:
+  - Ran `tests.test_ml` and `tests.test_teacher_and_gate`: **41/41 unit tests passed cleanly** in 18.066s.

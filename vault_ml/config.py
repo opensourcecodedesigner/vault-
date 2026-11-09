@@ -54,5 +54,6 @@ class TrainingConfig:
             raise ValueError("Use batch size 1 and positive gradient accumulation.")
         if not 0 < self.learning_rate <= 0.01 or not 1 <= self.rank <= 64 or self.alpha < 1:
             raise ValueError("Invalid optimizer or LoRA settings.")
-        if self.variant not in {"smoke", "M1", "M2"}:
-            raise ValueError("M3 requires a separately validated SafeTune implementation.")
+        allowed_variants = {"smoke", "M1", "M2", "M2-control", "M2_control", "M2-safety", "M2_safety"}
+        if self.variant not in allowed_variants:
+            raise ValueError(f"Unknown training variant: {self.variant}. Supported: {allowed_variants}")

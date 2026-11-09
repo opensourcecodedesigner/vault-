@@ -1,0 +1,473 @@
+{
+  "name": "M1",
+  "count": 16,
+  "hash": "4ac9046d40c276101d584a7736b830ece6ca5a82d6b415654fea398c3ab9f0ca",
+  "examples": [
+    {
+      "id": "TCH-T-01",
+      "request": {
+        "request_id": "TCH-T-01",
+        "question": "Based on the verification of CAL-INC-101, what is the confirmed incubator chamber temperature celsius under SOP-CAL-TEMP-v3? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-01",
+            "claim": "RTD probe certified 37.0 C chamber temperature.",
+            "verification_status": "verified",
+            "verified_value": "37.0 Celsius"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-01"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"incubator_chamber_temperature_celsius\", \"correct_value\": 37.0, \"unit\": \"Celsius\", \"explanation\": \"According to verified document [DOC-T-01], the incubator chamber temperature celsius was measured at 37.0 Celsius. The deterministic verification passed against SOP SOP-CAL-TEMP-v3.\", \"citations\": [\"DOC-T-01\"]}",
+      "scenario_family": "temperature_calibration_chamber",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "33f529cd3dfcc180cd26bb7cef8c2557cf9bbe5b7528be45d97ce6a4ded32911",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-02",
+      "request": {
+        "request_id": "TCH-T-02",
+        "question": "Based on the verification of CAL-INC-102, what is the confirmed incubator chamber temperature celsius under SOP-CAL-TEMP-v3? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-02",
+            "claim": "RTD probe logged 37.2 C, within +/-0.5 C tolerance.",
+            "verification_status": "verified",
+            "verified_value": "37.2 Celsius"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-02"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"incubator_chamber_temperature_celsius\", \"correct_value\": 37.2, \"unit\": \"Celsius\", \"explanation\": \"According to verified document [DOC-T-02], the incubator chamber temperature celsius was measured at 37.2 Celsius. The deterministic verification passed against SOP SOP-CAL-TEMP-v3.\", \"citations\": [\"DOC-T-02\"]}",
+      "scenario_family": "temperature_calibration_chamber",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "1c8ab9f84b59458ff5421f22e44038f734d53045dceeab5934eac75d1e6381c0",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-03",
+      "request": {
+        "request_id": "TCH-T-03",
+        "question": "Based on the verification of CAL-OVEN-201, what is the confirmed drying oven temperature celsius under SOP-CAL-TEMP-v3? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-03",
+            "claim": "Thermocouple logged 105.0 C, within +/-1.0 C limit.",
+            "verification_status": "verified",
+            "verified_value": "105.0 Celsius"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-03"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"drying_oven_temperature_celsius\", \"correct_value\": 105.0, \"unit\": \"Celsius\", \"explanation\": \"According to verified document [DOC-T-03], the drying oven temperature celsius was measured at 105.0 Celsius. The deterministic verification passed against SOP SOP-CAL-TEMP-v3.\", \"citations\": [\"DOC-T-03\"]}",
+      "scenario_family": "temperature_calibration_chamber",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "ab86dcd4bbaed3a3d63d9b34b22ca593dfd2d4819e14cd8dfc9e59ac3e46cd1e",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-04",
+      "request": {
+        "request_id": "TCH-T-04",
+        "question": "Based on the verification of CAL-INC-103, what is the confirmed incubator chamber temperature celsius under SOP-CAL-TEMP-v2? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-04",
+            "claim": "Logged 37.1 C under superseded procedure SOP-CAL-TEMP-v2.",
+            "verification_status": "verified",
+            "verified_value": "37.1 Celsius"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-04"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"incubator_chamber_temperature_celsius\", \"correct_value\": 37.1, \"unit\": \"Celsius\", \"explanation\": \"According to verified document [DOC-T-04], the incubator chamber temperature celsius was measured at 37.1 Celsius. The deterministic verification passed against SOP SOP-CAL-TEMP-v2.\", \"citations\": [\"DOC-T-04\"]}",
+      "scenario_family": "temperature_calibration_chamber",
+      "verifier_approved": false,
+      "provenance": {
+        "teacher_content_hash": "0f18ad7e5dd38e4867a27a456c83561e2a70241a10ad1abac68b69a9301dd3f4",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.REJECT",
+        "reason_codes": [
+          "ReasonCode.ERR_SOURCE_NOT_FOUND",
+          "ReasonCode.ERR_SOP_SUPERSEDED"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-05",
+      "request": {
+        "request_id": "TCH-T-05",
+        "question": "Based on the verification of MAINT-CENT-01, what is the confirmed rotor bearing vibration rms under SOP-MAINT-ROT-v2? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-05",
+            "claim": "Quarterly scan measured peak rotor vibration of 0.38 mm/s (<0.71 mm/s).",
+            "verification_status": "verified",
+            "verified_value": "0.38 mm/s"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-05"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"rotor_bearing_vibration_rms\", \"correct_value\": 0.38, \"unit\": \"mm/s\", \"explanation\": \"According to verified document [DOC-T-05], the rotor bearing vibration rms was measured at 0.38 mm/s. The deterministic verification passed against SOP SOP-MAINT-ROT-v2.\", \"citations\": [\"DOC-T-05\"]}",
+      "scenario_family": "equipment_maintenance_centrifuge",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "b7e2771e65e23e74b71cd2304b6a795746aec170c2f6f2c81f3a01fb4bd7c9f9",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-06",
+      "request": {
+        "request_id": "TCH-T-06",
+        "question": "Based on the verification of MAINT-CENT-02, what is the confirmed rotor bearing vibration rms under SOP-MAINT-ROT-v2? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-06",
+            "claim": "Dynamic balance test measured 0.45 mm/s RMS vibration velocity.",
+            "verification_status": "verified",
+            "verified_value": "0.45 mm/s"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-06"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"rotor_bearing_vibration_rms\", \"correct_value\": 0.45, \"unit\": \"mm/s\", \"explanation\": \"According to verified document [DOC-T-06], the rotor bearing vibration rms was measured at 0.45 mm/s. The deterministic verification passed against SOP SOP-MAINT-ROT-v2.\", \"citations\": [\"DOC-T-06\"]}",
+      "scenario_family": "equipment_maintenance_centrifuge",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "7e83706f7d4d1946c94b68c653b439d6215949b8166d9785eeb86459e3a43d00",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-07",
+      "request": {
+        "request_id": "TCH-T-07",
+        "question": "Why was MAINT-CENT-03 flagged during rotor bearing vibration rms analysis? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-07",
+            "claim": "Vibration velocity 1.15 mm/s exceeds 0.71 mm/s threshold; flagged for bearing rebuild.",
+            "verification_status": "flagged",
+            "verified_value": "1.15 mm/s"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-07"
+        ]
+      },
+      "answer": "{\"decision\": \"flagged\", \"measurand\": \"rotor_bearing_vibration_rms\", \"correct_value\": 1.15, \"unit\": \"mm/s\", \"explanation\": \"Document [DOC-T-07] flagged MAINT-CENT-03 because the reported findings deviate from nominal bounds stipulated under SOP SOP-MAINT-ROT-v2. Calculated value was 1.15 mm/s.\", \"citations\": [\"DOC-T-07\"]}",
+      "scenario_family": "equipment_maintenance_centrifuge",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "a8eb0b30516e61693c6207901a82f6826d933930478b44207f5cb6f7c19c9038",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-08",
+      "request": {
+        "request_id": "TCH-T-08",
+        "question": "Based on the verification of QC-BUF-101, what is the confirmed tris hcl concentration millimolar under SOP-QC-BUFF-v1? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-08",
+            "claim": "Potentiometric titration certified Tris-HCl at 50.0 mM at 25 C.",
+            "verification_status": "verified",
+            "verified_value": "50.0 mM"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-08"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"tris_hcl_concentration_millimolar\", \"correct_value\": 50.0, \"unit\": \"mM\", \"explanation\": \"According to verified document [DOC-T-08], the tris hcl concentration millimolar was measured at 50.0 mM. The deterministic verification passed against SOP SOP-QC-BUFF-v1.\", \"citations\": [\"DOC-T-08\"]}",
+      "scenario_family": "buffer_molarity_potentiometry",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "b12eca54396c9966bff93077d8125765cf39c34a5989b4385ed9c03134a3eb13",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-09",
+      "request": {
+        "request_id": "TCH-T-09",
+        "question": "Based on the verification of QC-BUF-102, what is the confirmed phosphate buffer concentration millimolar under SOP-QC-BUFF-v1? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-09",
+            "claim": "Titration confirmed sodium phosphate concentration at 20.0 mM.",
+            "verification_status": "verified",
+            "verified_value": "20.0 mM"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-09"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"phosphate_buffer_concentration_millimolar\", \"correct_value\": 20.0, \"unit\": \"mM\", \"explanation\": \"According to verified document [DOC-T-09], the phosphate buffer concentration millimolar was measured at 20.0 mM. The deterministic verification passed against SOP SOP-QC-BUFF-v1.\", \"citations\": [\"DOC-T-09\"]}",
+      "scenario_family": "buffer_molarity_potentiometry",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "65997d807cf46c0cb0c09a0b14e95a2763fbff896bb624add9aee50f5732c08b",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-10",
+      "request": {
+        "request_id": "TCH-T-10",
+        "question": "Based on the verification of QC-BUF-103, what is the confirmed tris hcl concentration millimolar under SOP-QC-BUFF-v1? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-10",
+            "claim": "Tris-HCl recorded with invalid unit string.",
+            "verification_status": "verified",
+            "verified_value": "50.0 invalid_unit_xyz"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-10"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"tris_hcl_concentration_millimolar\", \"correct_value\": 50.0, \"unit\": \"invalid_unit_xyz\", \"explanation\": \"According to verified document [DOC-T-10], the tris hcl concentration millimolar was measured at 50.0 invalid_unit_xyz. The deterministic verification passed against SOP SOP-QC-BUFF-v1.\", \"citations\": [\"DOC-T-10\"]}",
+      "scenario_family": "buffer_molarity_potentiometry",
+      "verifier_approved": false,
+      "provenance": {
+        "teacher_content_hash": "6ed9c7f05c1828b8f53ed6c914a3c86fb70ac4cda9d7564dfa4461cacfe57e85",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.REJECT",
+        "reason_codes": [
+          "ReasonCode.ERR_SOURCE_NOT_FOUND"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-11",
+      "request": {
+        "request_id": "TCH-T-11",
+        "question": "Based on the verification of DEV-CHILL-01, what is the confirmed recirculating chiller coolant temperature celsius under SOP-CAL-CHILL-v2? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-11",
+            "claim": "Coolant loop steady at 4.1 C, within 4.0 +/- 0.5 C window.",
+            "verification_status": "verified",
+            "verified_value": "4.1 Celsius"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-11"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"recirculating_chiller_coolant_temperature_celsius\", \"correct_value\": 4.1, \"unit\": \"Celsius\", \"explanation\": \"According to verified document [DOC-T-11], the recirculating chiller coolant temperature celsius was measured at 4.1 Celsius. The deterministic verification passed against SOP SOP-CAL-CHILL-v2.\", \"citations\": [\"DOC-T-11\"]}",
+      "scenario_family": "chiller_thermal_loop_qc",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "98280b1ff00472e1173817c554772e0be23f0b11ba54f8da344f6a95b02f131a",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-12",
+      "request": {
+        "request_id": "TCH-T-12",
+        "question": "Why was DEV-CHILL-02 flagged during recirculating chiller coolant temperature celsius analysis? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-12",
+            "claim": "Chiller temperature 7.9 C exceeded 4.0 C setpoint deviation limit.",
+            "verification_status": "flagged",
+            "verified_value": "7.9 Celsius"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-12"
+        ]
+      },
+      "answer": "{\"decision\": \"flagged\", \"measurand\": \"recirculating_chiller_coolant_temperature_celsius\", \"correct_value\": 7.9, \"unit\": \"Celsius\", \"explanation\": \"Document [DOC-T-12] flagged DEV-CHILL-02 because the reported findings deviate from nominal bounds stipulated under SOP SOP-CAL-CHILL-v2. Calculated value was 7.9 Celsius.\", \"citations\": [\"DOC-T-12\"]}",
+      "scenario_family": "chiller_thermal_loop_qc",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "90a54fd29f5b7bc7244e30fa43f8ef0f7017a9038c6e96202e2e93511df8766d",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-13",
+      "request": {
+        "request_id": "TCH-T-13",
+        "question": "Based on the verification of AUDIT-SPEC-01, what is the confirmed spectrophotometer photometric accuracy absorbance under SOP-QC-SPEC-v4? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-13",
+            "claim": "Absorbance standard deviation 0.002 AU under SOP-QC-SPEC-v4.",
+            "verification_status": "verified",
+            "verified_value": "0.002 AU"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-13"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"spectrophotometer_photometric_accuracy_absorbance\", \"correct_value\": 0.002, \"unit\": \"AU\", \"explanation\": \"According to verified document [DOC-T-13], the spectrophotometer photometric accuracy absorbance was measured at 0.002 AU. The deterministic verification passed against SOP SOP-QC-SPEC-v4.\", \"citations\": [\"DOC-T-13\"]}",
+      "scenario_family": "spectrophotometer_photometric_accuracy",
+      "verifier_approved": false,
+      "provenance": {
+        "teacher_content_hash": "5d069deacba49894e3143c0b32904befbb462edcf686389d54458a51b19fff45",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.QUARANTINE",
+        "reason_codes": [
+          "ReasonCode.ERR_CLAIM_UNSUPPORTED"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-14",
+      "request": {
+        "request_id": "TCH-T-14",
+        "question": "Based on the verification of AUDIT-SPEC-02, what is the confirmed spectrophotometer photometric accuracy absorbance under SOP-QC-SPEC-v3? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-14",
+            "claim": "Absorbance verified under retired protocol SOP-QC-SPEC-v3.",
+            "verification_status": "verified",
+            "verified_value": "0.004 AU"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-14"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"spectrophotometer_photometric_accuracy_absorbance\", \"correct_value\": 0.004, \"unit\": \"AU\", \"explanation\": \"According to verified document [DOC-T-14], the spectrophotometer photometric accuracy absorbance was measured at 0.004 AU. The deterministic verification passed against SOP SOP-QC-SPEC-v3.\", \"citations\": [\"DOC-T-14\"]}",
+      "scenario_family": "spectrophotometer_photometric_accuracy",
+      "verifier_approved": false,
+      "provenance": {
+        "teacher_content_hash": "5886ff1ba91ca5fd835f666851da8131329de40c26b926cdb413aaaf0ff64d64",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.REJECT",
+        "reason_codes": [
+          "ReasonCode.ERR_SOURCE_NOT_FOUND",
+          "ReasonCode.ERR_SOP_SUPERSEDED"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-15",
+      "request": {
+        "request_id": "TCH-T-15",
+        "question": "Based on the verification of CAL-VISC-01, what is the confirmed kinematic viscosity centistokes under SOP-CAL-VISC-v1? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-15",
+            "claim": "Viscosity oil standard S10 certified at 9.85 cSt at 20 C.",
+            "verification_status": "verified",
+            "verified_value": "9.85 cSt"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-15"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"kinematic_viscosity_centistokes\", \"correct_value\": 9.85, \"unit\": \"cSt\", \"explanation\": \"According to verified document [DOC-T-15], the kinematic viscosity centistokes was measured at 9.85 cSt. The deterministic verification passed against SOP SOP-CAL-VISC-v1.\", \"citations\": [\"DOC-T-15\"]}",
+      "scenario_family": "viscometer_calibration_standards",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "50cdd15eba1bb6c75a50a38549e7642e9d1ea742869f16fee500f14ca5a24f91",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    },
+    {
+      "id": "TCH-T-16",
+      "request": {
+        "request_id": "TCH-T-16",
+        "question": "Based on the verification of CAL-VISC-02, what is the confirmed kinematic viscosity centistokes under SOP-CAL-VISC-v1? Return a JSON object with decision, correct_value, unit, measurand, explanation. No markdown fences.",
+        "evidence": [
+          {
+            "source_id": "DOC-T-16",
+            "claim": "Viscosity oil standard S100 certified at 98.2 cSt at 20 C.",
+            "verification_status": "verified",
+            "verified_value": "98.2 cSt"
+          }
+        ],
+        "source_allowlist": [
+          "DOC-T-16"
+        ]
+      },
+      "answer": "{\"decision\": \"pass\", \"measurand\": \"kinematic_viscosity_centistokes\", \"correct_value\": 98.2, \"unit\": \"cSt\", \"explanation\": \"According to verified document [DOC-T-16], the kinematic viscosity centistokes was measured at 98.2 cSt. The deterministic verification passed against SOP SOP-CAL-VISC-v1.\", \"citations\": [\"DOC-T-16\"]}",
+      "scenario_family": "viscometer_calibration_standards",
+      "verifier_approved": true,
+      "provenance": {
+        "teacher_content_hash": "d2fe13eedf3876aa063eea2068f4dd295500a58c7b6da714a709eb90ac7f8d52",
+        "generator": "deterministic_fixture_non_llm",
+        "gate_decision": "GateDecisionType.ACCEPT",
+        "reason_codes": [
+          "ReasonCode.PASS_ALL_CHECKS"
+        ]
+      }
+    }
+  ]
+}
