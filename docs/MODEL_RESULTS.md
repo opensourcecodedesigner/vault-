@@ -100,3 +100,4 @@ All artifacts are persisted with immutable hashes and UTC timestamps:
 1. **Evaluation Suite Sample Size:** The held-out scientific test suite contains 10 curated synthetic scenarios, and the safety suite contains 8 curated scenarios. While these provide directional evidence and rigorous format verification, they do not constitute large-scale statistical validation.
 2. **Safety Evaluation Depth:** Safety evaluations rely on lexical refusal markers, AuditKIT rule-based checks, and SafeTune offline keyword scoring. Nuanced, multi-turn, or bilingual jailbreaks were not evaluated, and no external judge LLM or human rubric was applied.
 3. **Synthetic Evidence:** All evidence inputs in these evaluations are synthetic stipulated facts designed for deterministic testing. They must not be conflated with validated peer-reviewed scientific literature.
+
