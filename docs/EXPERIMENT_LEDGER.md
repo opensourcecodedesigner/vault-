@@ -135,3 +135,22 @@ The Git milestone covers this implemented and tested workstream. Starting commit
 ### 6. M3 Status and Regression Test Suite
 - SafeTune multi-stage training (M3) requires reference-model KL penalties, custom gradient hooks, and Linux dependencies exceeding 6 GB VRAM. Formally documented as unsupported on local Windows hardware, with complete executable configuration provided in `experiments/training/cloud-16gb.json`. SafeTune's official offline evaluation metric suite was integrated and executed on all real model outputs.
 - Full test suite: `python -m unittest tests.test_ml -v`: **22/22 unit tests passing cleanly**.
+
+### 7. Teacher LLM Interface & Six-Check Evidence Gate Milestone (2026-11-09)
+- **Teacher LLM Interface (`vault_ml.teacher`)**:
+  - Implemented modular `TeacherClient` supporting `mode='fixture'` for deterministic offline generation and `mode='endpoint'` for remote compute.
+  - Pinned official metadata for `CohereLabs/aya-expanse-8b` (revision `5062468bf9bc0c6035fd64e06274333ec127d980`, license `CC-BY-NC-4.0`).
+  - Implemented hardware memory guard (`TeacherHardwareError`) preventing unsafe co-existence of an 8B teacher alongside the 3.35B student in 6 GB VRAM.
+  - Verified truth ledger invariance: teacher outputs strictly ground on `TruthLedgerRecord` and can never override authoritative measurements.
+  - Factory `create_benign_qc_records` supplies benign quality-control laboratory test cases (temperature calibration, centrifuge rotor vibration maintenance, buffer molarity, chiller thermal deviation, spectrophotometer photometric accuracy).
+- **Six-Check Evidence Gate (`vault_ml.evidence_gate`)**:
+  - Check 1: Cited source exists in catalog (`ERR_SOURCE_NOT_FOUND`).
+  - Check 2: Referenced evidence span is non-empty and relevant (`ERR_SPAN_EMPTY`, `ERR_SPAN_IRRELEVANT`).
+  - Check 3: Factual claim is supported by evidence (`ERR_CLAIM_UNSUPPORTED`).
+  - Check 4: Mathematics, units, and non-finite values are checked against catalog tolerances (`ERR_NUMERIC_MISMATCH`, `ERR_UNIT_INCOMPATIBLE`, `ERR_NONFINITE_VALUE`).
+  - Check 5: Multi-source measurements are checked for consistency (`ERR_SOURCE_CONTRADICTION`).
+  - Check 6: SOP version applicability is validated (`ERR_SOP_SUPERSEDED`, `WARN_ALTERNATIVE_METHOD`).
+  - Decisions are strictly tri-state: `ACCEPT`, `QUARANTINE`, or `REJECT` with machine-readable reason codes.
+  - Controlled label corruption benchmark across 0%, 5%, 10%, 20% tiers achieved 100% recall and 100% precision in detecting injected corruptions on the benign QC corpus.
+  - Verified that input candidate data is never mutated during gate evaluation.
+- **Combined Test Suite**: Ran 39/39 unit tests across `tests.test_ml` and `tests.test_teacher_and_gate` in 15.658s (**100% pass rate**).

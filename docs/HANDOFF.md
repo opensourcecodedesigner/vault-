@@ -83,12 +83,16 @@ Vijay's deterministic verifier and immutable evidence provenance directly feed t
   - `value`: Numeric scalar or structured quantity.
   - `unit`: Normalized SI or domain unit.
   - `verified`: Boolean indicating deterministic verifier pass.
-- **Evidence-Gated Training Pipeline (`vault_ml.training_data`)**:
-  - The deterministic verifier gate checks:
-    1. Provenance hash validity (`fingerprint(record)`).
-    2. Numerical and unit consistency.
-    3. Absence of internal contradiction.
-  - Only records with `approved: true` are admitted to the M2 fine-tuning set.
+- **Evidence-Gated Training Pipeline (`vault_ml.evidence_gate`)**:
+  - The deterministic Evidence Gate executes six explicit verification checks:
+    1. `CHECK_1_SOURCE_EXISTS`: Verified against Vijay's catalog (`ERR_SOURCE_NOT_FOUND`).
+    2. `CHECK_2_SPAN_RELEVANT`: Confirms evidence excerpt is non-empty and relevant (`ERR_SPAN_EMPTY`, `ERR_SPAN_IRRELEVANT`).
+    3. `CHECK_3_CLAIM_SUPPORTED`: Prevents contradicted verdicts (`ERR_CLAIM_UNSUPPORTED`).
+    4. `CHECK_4_MATH_UNITS_CORRECT`: Enforces strict numerical tolerances and dimensional compatibility (`ERR_NUMERIC_MISMATCH`, `ERR_UNIT_INCOMPATIBLE`, `ERR_NONFINITE_VALUE`).
+    5. `CHECK_5_MULTI_SOURCE_CONSISTENT`: Detects conflicting measurements across multiple sources (`ERR_SOURCE_CONTRADICTION`).
+    6. `CHECK_6_SOP_VERSION_APPLICABLE`: Rejects superseded protocols (`ERR_SOP_SUPERSEDED`) and quarantines novel/experimental methodologies (`WARN_ALTERNATIVE_METHOD`).
+  - Decisions are strictly tri-state: `ACCEPT`, `QUARANTINE`, or `REJECT` with machine-readable reason codes.
+  - Teacher Interface (`vault_ml.teacher`): Consumes `TruthLedgerRecord` and can never override authoritative ledger values. Supports `mode='fixture'` for offline deterministic generation and `mode='endpoint'` for remote compute.
 
 ---
 
@@ -113,6 +117,15 @@ Vijay's deterministic verifier and immutable evidence provenance directly feed t
 | **M2 Adapter** | `experiments/training/M2/20261108T192924_466936Z/adapter/` | Verified (SHA256: `37799d61...`) |
 | **M1 Science Eval** | `experiments/evaluation/M1-science/20261108T193044_172858Z/` | Verified (7/10 JSON) |
 | **M1 Safety Eval** | `experiments/evaluation/M1-safety/20261108T193642_351096Z/` | Verified (AuditKIT + SafeTune) |
+| **M2 Science Eval** | `experiments/evaluation/M2-science/20261108T194125_030392Z/` | Verified (8/10 JSON) |
+| **M2 Safety Eval** | `experiments/evaluation/M2-safety/20261108T194609_429677Z/` | Verified (AuditKIT + SafeTune) |
+| **Comparative Analysis** | `experiments/comparison.json` | Verified (`complete`) |
+| **Teacher LLM Interface** | `vault_ml/teacher.py` | Verified (Offline Fixture + Endpoint) |
+| **Six-Check Evidence Gate** | `vault_ml/evidence_gate.py` | Verified (Tri-state + Corruption Suite) |
+| **Unit Test Suite** | `tests/test_ml.py`, `tests/test_teacher_and_gate.py` | 39/39 Passing |
+| **Experiment Ledger** | `docs/EXPERIMENT_LEDGER.md` | Fully Documented |
+| **Gap Analysis & Roadmap** | `docs/GAP_ANALYSIS.md` | Complete Audit |
+| **Teacher Specification** | `docs/TEACHER_PIPELINE.md` | Memory & Ingestion Spec |
 | **M2 Science Eval** | `experiments/evaluation/M2-science/20261108T194125_030392Z/` | Verified (8/10 JSON) |
 | **M2 Safety Eval** | `experiments/evaluation/M2-safety/20261108T194609_429677Z/` | Verified (AuditKIT + SafeTune) |
 | **Comparative Analysis** | `experiments/comparison.json` | Verified (`complete`) |
